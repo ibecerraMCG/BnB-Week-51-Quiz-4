@@ -1,0 +1,2381 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="slate">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Week 51 · B&amp;B Week 1 · Part 4 — Practice Quiz</title>
+    <link rel="icon" href="data:image/svg+xml,&lt;svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22&gt;&lt;text y=%22.9em%22 font-size=%2290%22&gt;🧠&lt;/text&gt;&lt;/svg&gt;">
+
+    <!-- Umami Analytics — replace website-id with your quiz site ID when ready -->
+    <script defer src="https://cloud.umami.is/script.js" data-website-id="YOUR-QUIZ-WEBSITE-ID"></script>
+
+    <style>
+    /* ============================================================
+       BASE TOKENS  (shared with the B&B directory)
+    ============================================================ */
+    :root {
+        --transition-speed: 0.3s;
+        --font-main: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+        --font-mono: 'Courier New', Courier, monospace;
+        --sidebar-width: 288px;
+        --header-h: 56px;
+        --header-height: 56px;
+        --radius: 14px;
+    }
+/* Navy (default) — matches the Quiz Library */
+    [data-theme="navy"] {
+        --bg-body: #0b1430;
+        --bg-card: #13203f;
+        --bg-card-hover: #1a2a4f;
+        --bg-header: rgba(11,20,48,0.86);
+        --bg-sidebar: rgba(14,24,56,0.72);
+        --bg-input: #1a2a4f;
+        --bg-active: rgba(110,168,254,0.2);
+        --bg-hover: rgba(110,168,254,0.1);
+        --text-main: #eef2fb;
+        --topic-color: #ffffff;
+        --text-muted: #93a0c0;
+        --text-accent: #6ea8fe;
+        --text-accent-2: #7ee0d0;
+        --border-color: rgba(110,168,254,0.3);
+        --border-subtle: rgba(255,255,255,0.08);
+        --button-bg: #6ea8fe;
+        --button-text: #08101f;
+        --btn-disabled-bg: rgba(255,255,255,0.05);
+        --btn-disabled-text: #93a0c0;
+        --btn-disabled-border: rgba(255,255,255,0.16);
+        --live-dot: #34d399;
+        --part-1: #6ea8fe;
+        --part-2: #38bdf8;
+        --part-3: #34d399;
+        --part-4: #fb923c;
+        --solid-accent: #6ea8fe;
+        --neural-rgb: 110,168,254;
+        --card-glow: rgba(110,168,254,0.35);
+        --select-bg: #1a2a4f;
+        --select-text: #eef2fb;
+        --hero-glow-1: rgba(110,168,254,0.22);
+        --hero-glow-2: rgba(126,224,208,0.14);
+    }
+
+    /* Charcoal — neutral warm-gray dark */
+    [data-theme="charcoal"] {
+        --bg-body: #15171c;
+        --bg-card: #1f232b;
+        --bg-card-hover: #262b35;
+        --bg-header: rgba(21,23,28,0.86);
+        --bg-sidebar: rgba(25,28,34,0.72);
+        --bg-input: #262b35;
+        --bg-active: rgba(224,169,109,0.18);
+        --bg-hover: rgba(224,169,109,0.1);
+        --text-main: #ecedf0;
+        --topic-color: #ffffff;
+        --text-muted: #959aa6;
+        --text-accent: #e0a96d;
+        --text-accent-2: #9fd0c0;
+        --border-color: rgba(224,169,109,0.3);
+        --border-subtle: rgba(255,255,255,0.07);
+        --button-bg: #e0a96d;
+        --button-text: #1a1409;
+        --btn-disabled-bg: rgba(255,255,255,0.05);
+        --btn-disabled-text: #959aa6;
+        --btn-disabled-border: rgba(255,255,255,0.15);
+        --live-dot: #6fcf97;
+        --part-1: #e0a96d;
+        --part-2: #9fd0c0;
+        --part-3: #84b6c9;
+        --part-4: #d39ab0;
+        --solid-accent: #e0a96d;
+        --neural-rgb: 224,169,109;
+        --card-glow: rgba(224,169,109,0.3);
+        --select-bg: #262b35;
+        --select-text: #ecedf0;
+        --hero-glow-1: rgba(224,169,109,0.14);
+        --hero-glow-2: rgba(159,208,192,0.1);
+    }
+
+    /* Slate — blue-gray */
+    [data-theme="slate"] {
+        --bg-body: #1e293b;
+        --bg-card: #334155;
+        --bg-card-hover: #3d4c63;
+        --bg-header: rgba(15,23,42,0.86);
+        --bg-sidebar: rgba(20,30,48,0.78);
+        --bg-input: #2c3a50;
+        --bg-active: rgba(56,189,248,0.2);
+        --bg-hover: rgba(56,189,248,0.1);
+        --text-main: #f1f5f9;
+        --topic-color: #ffffff;
+        --text-muted: #94a3b8;
+        --text-accent: #38bdf8;
+        --text-accent-2: #5eead4;
+        --border-color: rgba(56,189,248,0.3);
+        --border-subtle: rgba(148,163,184,0.18);
+        --button-bg: #38bdf8;
+        --button-text: #0f172a;
+        --btn-disabled-bg: rgba(255,255,255,0.05);
+        --btn-disabled-text: #94a3b8;
+        --btn-disabled-border: rgba(148,163,184,0.25);
+        --live-dot: #34d399;
+        --part-1: #38bdf8;
+        --part-2: #818cf8;
+        --part-3: #34d399;
+        --part-4: #fb923c;
+        --solid-accent: #38bdf8;
+        --neural-rgb: 56,189,248;
+        --card-glow: rgba(56,189,248,0.35);
+        --select-bg: #2c3a50;
+        --select-text: #f1f5f9;
+        --hero-glow-1: rgba(56,189,248,0.26);
+        --hero-glow-2: rgba(129,140,248,0.18);
+    }
+
+    /* Plum — deep purple */
+    [data-theme="plum"] {
+        --bg-body: #16131f;
+        --bg-card: #221c30;
+        --bg-card-hover: #2c2440;
+        --bg-header: rgba(18,15,26,0.86);
+        --bg-sidebar: rgba(27,22,40,0.75);
+        --bg-input: #2a2338;
+        --bg-active: rgba(196,176,255,0.22);
+        --bg-hover: rgba(196,176,255,0.12);
+        --text-main: #f3f0fa;
+        --topic-color: #ffffff;
+        --text-muted: #9c92b3;
+        --text-accent: #c4b0ff;
+        --text-accent-2: #5eead4;
+        --border-color: rgba(196,176,255,0.3);
+        --border-subtle: rgba(196,176,255,0.12);
+        --button-bg: #a78bfa;
+        --button-text: #14101f;
+        --btn-disabled-bg: rgba(255,255,255,0.05);
+        --btn-disabled-text: #9c92b3;
+        --btn-disabled-border: rgba(196,176,255,0.18);
+        --live-dot: #34d399;
+        --part-1: #c4b0ff;
+        --part-2: #38bdf8;
+        --part-3: #34d399;
+        --part-4: #fb923c;
+        --solid-accent: #c4b0ff;
+        --neural-rgb: 196,176,255;
+        --card-glow: rgba(196,176,255,0.32);
+        --select-bg: #2a2338;
+        --select-text: #f3f0fa;
+        --hero-glow-1: rgba(124,58,237,0.24);
+        --hero-glow-2: rgba(56,189,248,0.12);
+    }
+
+    /* Forest — deep green */
+    [data-theme="forest"] {
+        --bg-body: #0d1a14;
+        --bg-card: #142620;
+        --bg-card-hover: #1b322a;
+        --bg-header: rgba(13,26,20,0.86);
+        --bg-sidebar: rgba(16,32,26,0.75);
+        --bg-input: #1b322a;
+        --bg-active: rgba(94,217,154,0.2);
+        --bg-hover: rgba(94,217,154,0.1);
+        --text-main: #e9f3ec;
+        --topic-color: #ffffff;
+        --text-muted: #8aa899;
+        --text-accent: #5ed99a;
+        --text-accent-2: #a7e8d0;
+        --border-color: rgba(94,217,154,0.3);
+        --border-subtle: rgba(143,209,179,0.12);
+        --button-bg: #5ed99a;
+        --button-text: #08160f;
+        --btn-disabled-bg: rgba(255,255,255,0.05);
+        --btn-disabled-text: #8aa899;
+        --btn-disabled-border: rgba(143,209,179,0.2);
+        --live-dot: #5ed99a;
+        --part-1: #5ed99a;
+        --part-2: #6ea8fe;
+        --part-3: #a7e8d0;
+        --part-4: #fbbf24;
+        --solid-accent: #5ed99a;
+        --neural-rgb: 94,217,154;
+        --card-glow: rgba(94,217,154,0.3);
+        --select-bg: #1b322a;
+        --select-text: #e9f3ec;
+        --hero-glow-1: rgba(94,217,154,0.18);
+        --hero-glow-2: rgba(167,232,208,0.12);
+    }
+
+    /* Midnight */
+    [data-theme="midnight"] {
+        --bg-body: #000000;
+        --bg-card: #0a0b12;
+        --bg-card-hover: #11131d;
+        --bg-header: rgba(0,0,0,0.85);
+        --bg-sidebar: rgba(4,5,9,0.78);
+        --bg-input: #0c0e16;
+        --bg-active: rgba(129,140,248,0.16);
+        --bg-hover: rgba(129,140,248,0.07);
+        --text-main: #d6dae3;
+        --topic-color: #d6dae3;
+        --text-muted: #6b7280;
+        --text-accent: #818cf8;
+        --text-accent-2: #67e8f9;
+        --border-color: rgba(129,140,248,0.22);
+        --border-subtle: rgba(255,255,255,0.05);
+        --button-bg: #4f46e5;
+        --button-text: #ffffff;
+        --btn-disabled-bg: rgba(255,255,255,0.03);
+        --btn-disabled-text: #5b6170;
+        --btn-disabled-border: rgba(255,255,255,0.08);
+        --live-dot: #34d399;
+        --part-1: #818cf8;
+        --part-2: #67e8f9;
+        --part-3: #4ade80;
+        --part-4: #fbbf24;
+        --solid-accent: #818cf8;
+        --neural-rgb: 129,140,248;
+        --card-glow: rgba(129,140,248,0.22);
+        --select-bg: #0c0e16;
+        --select-text: #d6dae3;
+        --hero-glow-1: rgba(79,70,229,0.25);
+        --hero-glow-2: rgba(103,232,249,0.12);
+    }
+
+    /* Modern Light */
+    [data-theme="light"] {
+        --bg-body: #eef2fb;
+        --bg-card: #ffffff;
+        --bg-card-hover: #f6f8ff;
+        --bg-header: rgba(238,242,251,0.9);
+        --bg-sidebar: rgba(255,255,255,0.7);
+        --bg-input: #f3f6fd;
+        --bg-active: rgba(37,99,235,0.1);
+        --bg-hover: rgba(37,99,235,0.05);
+        --text-main: #16203a;
+        --topic-color: #16203a;
+        --text-muted: #5a6685;
+        --text-accent: #2563eb;
+        --text-accent-2: #0891b2;
+        --border-color: rgba(37,99,235,0.18);
+        --border-subtle: rgba(20,40,90,0.1);
+        --button-bg: #2563eb;
+        --button-text: #ffffff;
+        --btn-disabled-bg: #eef1f7;
+        --btn-disabled-text: #9099ab;
+        --btn-disabled-border: #d4dae6;
+        --live-dot: #16a34a;
+        --part-1: #2563eb;
+        --part-2: #0891b2;
+        --part-3: #059669;
+        --part-4: #ea580c;
+        --solid-accent: #2563eb;
+        --neural-rgb: 37,99,235;
+        --card-glow: rgba(37,99,235,0.16);
+        --select-bg: #ffffff;
+        --select-text: #16203a;
+        --hero-glow-1: rgba(37,99,235,0.12);
+        --hero-glow-2: rgba(8,145,178,0.08);
+    }
+
+    /* Sepia */
+    [data-theme="sepia"] {
+        --bg-body: #efe6d2;
+        --bg-card: #fdf6e3;
+        --bg-card-hover: #fbf2d9;
+        --bg-header: rgba(244,236,216,0.9);
+        --bg-sidebar: rgba(253,246,227,0.72);
+        --bg-input: #f6eed6;
+        --bg-active: rgba(160,90,44,0.14);
+        --bg-hover: rgba(160,90,44,0.06);
+        --text-main: #433422;
+        --topic-color: #433422;
+        --text-muted: #7c6f58;
+        --text-accent: #a05a2c;
+        --text-accent-2: #6b7a3a;
+        --border-color: rgba(160,90,44,0.24);
+        --border-subtle: rgba(67,52,34,0.12);
+        --button-bg: #a05a2c;
+        --button-text: #fdf6e3;
+        --btn-disabled-bg: #ece1c8;
+        --btn-disabled-text: #a08f74;
+        --btn-disabled-border: #d3c4a5;
+        --live-dot: #5a7a3a;
+        --part-1: #a05a2c;
+        --part-2: #6b7a3a;
+        --part-3: #8b7355;
+        --part-4: #b8860b;
+        --solid-accent: #a05a2c;
+        --neural-rgb: 160,90,44;
+        --card-glow: rgba(160,90,44,0.18);
+        --select-bg: #fdf6e3;
+        --select-text: #433422;
+        --hero-glow-1: rgba(160,90,44,0.16);
+        --hero-glow-2: rgba(107,142,35,0.1);
+    }
+
+    /* High Contrast */
+    [data-theme="contrast"] {
+        --bg-body: #000000;
+        --bg-card: #0a0a0a;
+        --bg-card-hover: #141414;
+        --bg-header: rgba(0,0,0,0.9);
+        --bg-sidebar: rgba(0,0,0,0.85);
+        --bg-input: #111111;
+        --bg-active: rgba(255,212,0,0.16);
+        --bg-hover: rgba(255,212,0,0.07);
+        --text-main: #ffffff;
+        --topic-color: #ffffff;
+        --text-muted: #cfcfcf;
+        --text-accent: #ffd400;
+        --text-accent-2: #00e5ff;
+        --border-color: rgba(255,255,255,0.55);
+        --border-subtle: rgba(255,255,255,0.22);
+        --button-bg: #ffd400;
+        --button-text: #000000;
+        --btn-disabled-bg: #141414;
+        --btn-disabled-text: #888888;
+        --btn-disabled-border: #444444;
+        --live-dot: #00ff00;
+        --part-1: #ffd400;
+        --part-2: #00e5ff;
+        --part-3: #00ff00;
+        --part-4: #ff7a00;
+        --solid-accent: #ffd400;
+        --neural-rgb: 255,212,0;
+        --card-glow: rgba(255,212,0,0.2);
+        --select-bg: #111111;
+        --select-text: #ffffff;
+        --hero-glow-1: rgba(255,212,0,0.12);
+        --hero-glow-2: rgba(0,229,255,0.1);
+    }
+
+    /* ============================================================
+       
+
+    /* ============================================================
+       RESET & PAGE
+    ============================================================ */
+    * , *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    ::selection { background: var(--bg-active); color: var(--text-main); }
+    ::-webkit-scrollbar { width: 10px; height: 10px; }
+    ::-webkit-scrollbar-thumb { background: var(--border-color); border-radius: 5px; }
+    ::-webkit-scrollbar-track { background: transparent; }
+
+    body {
+        font-family: var(--font-main); background: var(--bg-body); color: var(--text-main);
+        line-height: 1.6; -webkit-font-smoothing: antialiased; min-height: 100vh; overflow-x: hidden;
+        transition: background var(--transition-speed), color var(--transition-speed);
+    }
+    #neural-bg { position: fixed; inset: 0; width: 100%; height: 100%; z-index: 0; pointer-events: none; }
+    #wash {
+        position: fixed; inset: 0; z-index: 0; pointer-events: none;
+        background:
+            radial-gradient(56vw 46vh at 100% 0%, var(--hero-glow-1), transparent 68%),
+            radial-gradient(46vw 40vh at 0% 4%, var(--hero-glow-2), transparent 66%);
+        transition: background 0.6s ease, opacity 0.4s ease;
+    }
+    body.no-accents #wash { opacity: 0; }
+    #app { position: relative; z-index: 1; display: flex; flex-direction: column; min-height: 100vh; }
+
+    /* ============================================================
+       HEADER  (matches B&B directory)
+    ============================================================ */
+    #main-header {
+        position: fixed; top: 0; left: 0; right: 0; z-index: 100; height: var(--header-h);
+        display: flex; align-items: center; gap: 14px; padding: 0 clamp(0.8rem, 2.5vw, 1.4rem);
+        background: var(--bg-header); backdrop-filter: blur(16px) saturate(140%); -webkit-backdrop-filter: blur(16px) saturate(140%);
+        border-bottom: 1px solid var(--border-subtle);
+        transition: transform 0.35s cubic-bezier(.4,0,.2,1), border-color 0.3s;
+    }
+    #main-header.scrolled { box-shadow: 0 6px 26px rgba(0,0,0,0.18); }
+    #main-header.unpinned { position: absolute; }
+
+    #sidebar-toggle {
+        flex-shrink: 0; width: 38px; height: 38px; border-radius: 10px; background: none;
+        border: 1px solid var(--border-color); cursor: pointer; display: flex; flex-direction: column;
+        align-items: center; justify-content: center; gap: 4px; transition: background 0.2s, border-color 0.2s;
+    }
+    #sidebar-toggle:hover { background: var(--bg-hover); }
+    #sidebar-toggle span { display: block; width: 16px; height: 2px; background: var(--text-main); border-radius: 1px; transition: all 0.22s; }
+
+    .brand { display: flex; align-items: center; gap: 11px; flex: 1; min-width: 0; }
+    .brand-mark { flex-shrink: 0; width: 34px; height: 34px; }
+    .brand-mark svg { width: 100%; height: 100%; display: block; }
+    .brand-text { min-width: 0; }
+    .brand-title { font-size: 1.02rem; font-weight: 800; letter-spacing: -0.01em; color: var(--text-main); line-height: 1.12; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+    .brand-sub { font-size: 0.66rem; color: var(--text-muted); letter-spacing: 0.04em; }
+    .brand-short { display: none; }
+
+    .header-controls { display: flex; align-items: center; gap: 9px; flex-shrink: 0; }
+
+    .mode-switch { display: inline-flex; border: 1px solid var(--border-color); border-radius: 10px; overflow: hidden; height: 38px; }
+    .mode-switch button {
+        border: none; background: none; cursor: pointer; font-family: var(--font-main);
+        font-size: 0.78rem; font-weight: 600; color: var(--text-muted); padding: 0 13px; transition: all 0.18s;
+    }
+    .mode-switch button.active { background: var(--button-bg); color: var(--button-text); }
+    .mode-switch button:not(.active):hover { color: var(--text-main); background: var(--bg-hover); }
+
+    .icon-btn, #settings-btn {
+        flex-shrink: 0; height: 38px; min-width: 38px; padding: 0 10px; border-radius: 10px;
+        display: inline-flex; align-items: center; justify-content: center; gap: 6px;
+        background: none; border: 1px solid var(--border-color); cursor: pointer;
+        font-size: 0.9rem; font-weight: 600; color: var(--text-main); font-family: var(--font-main);
+        transition: background 0.2s, border-color 0.2s, transform 0.15s;
+    }
+    .icon-btn:hover, #settings-btn:hover { background: var(--bg-hover); }
+    .icon-btn:active, #settings-btn:active { transform: scale(0.94); }
+    #settings-btn.open, .icon-btn.on { background: var(--bg-active); border-color: var(--text-accent); color: var(--text-accent); }
+    .icon-btn svg { display: block; }
+    .icon-btn .btn-label { font-size: 0.78rem; font-weight: 600; letter-spacing: 0.01em; }
+    /* Highlighter active uses the highlight color for a clear signal */
+    #hl-btn.on { background: color-mix(in srgb, var(--flag-color, #f5a524) 22%, transparent); border-color: var(--flag-color, #f5a524); color: var(--flag-color, #f5a524); }
+
+    #theme-select {
+        height: 38px; padding: 0 10px; border-radius: 10px; border: 1px solid var(--border-color); cursor: pointer;
+        background: var(--select-bg); color: var(--select-text); font-family: var(--font-main); font-size: 0.82rem;
+    }
+    #theme-select:hover { border-color: var(--text-accent); }
+    #theme-select option { background: var(--select-bg); color: var(--select-text); }
+
+    /* popovers */
+    #custom-builder, #settings-panel {
+        position: absolute; top: calc(var(--header-h) + 8px); right: clamp(0.8rem, 2.5vw, 1.4rem);
+        background: var(--bg-card); border: 1px solid var(--border-color); border-radius: 12px; padding: 15px 17px;
+        z-index: 300; box-shadow: 0 16px 44px rgba(0,0,0,0.4); animation: pop-in 0.2s ease;
+    }
+    @keyframes pop-in { from { opacity: 0; transform: translateY(-6px); } to { opacity: 1; transform: translateY(0); } }
+    #custom-builder { display: none; flex-direction: column; gap: 4px; min-width: 230px; }
+    #custom-builder.active { display: flex; }
+    .cpg { display: flex; align-items: center; justify-content: space-between; gap: 12px; color: var(--text-muted); font-size: 0.82rem; padding: 5px 0; }
+    .cpg input[type="color"] { border: none; width: 28px; height: 28px; border-radius: 6px; cursor: pointer; padding: 0; background: none; }
+
+    #settings-panel { display: none; min-width: 288px; }
+    #settings-panel.open { display: block; }
+    .settings-row { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 11px 0; }
+    .settings-row + .settings-row { border-top: 1px solid var(--border-subtle); }
+    .settings-row + .settings-subrow, .settings-subrow + .settings-row { border-top: none; }
+    .settings-row:first-of-type { padding-top: 3px; }
+    .settings-title { font-size: 0.85rem; font-weight: 600; color: var(--text-main); }
+    .settings-sub { font-size: 0.72rem; color: var(--text-muted); margin-top: 2px; }
+    .settings-subrow { margin: 3px 0 2px; padding: 10px 12px; background: var(--bg-input); border-radius: 10px; }
+    .settings-subrow .settings-title { font-weight: 600; font-size: 0.8rem; }
+    .mini-select { flex-shrink: 0; height: 30px; padding: 0 8px; border-radius: 8px; border: 1px solid var(--border-color); background: var(--select-bg); color: var(--select-text); font-family: var(--font-main); font-size: 0.76rem; cursor: pointer; max-width: 148px; }
+    .mini-select option { background: var(--select-bg); color: var(--select-text); }
+    .toggle-switch { flex-shrink: 0; width: 46px; height: 26px; border-radius: 100px; position: relative; border: 1px solid var(--border-color); background: var(--bg-input); cursor: pointer; padding: 0; transition: background 0.22s, border-color 0.22s; }
+    .toggle-switch.on { background: var(--button-bg); border-color: var(--button-bg); }
+    .toggle-knob { position: absolute; top: 2px; left: 2px; width: 20px; height: 20px; border-radius: 50%; background: #fff; box-shadow: 0 1px 3px rgba(0,0,0,0.35); transition: transform 0.24s cubic-bezier(.4,0,.2,1); }
+    .toggle-switch.on .toggle-knob { transform: translateX(20px); }
+
+    .settings-action { align-items: center; }
+    .btn-pair { flex-shrink: 0; display: inline-flex; gap: 6px; }
+    .pair-btn {
+        font-family: var(--font-main); font-size: 0.76rem; font-weight: 700; cursor: pointer;
+        padding: 7px 15px; border-radius: 8px;
+        background: var(--bg-card); color: var(--text-accent); border: 1px solid var(--border-color);
+        transition: background 0.18s, color 0.18s, border-color 0.18s;
+    }
+    .pair-btn:hover { background: var(--text-accent); color: var(--button-text); border-color: var(--text-accent); }
+    .pair-btn.danger { color: #f87171; border-color: rgba(248,113,113,0.5); }
+    .pair-btn.danger:hover, .pair-btn.danger.confirm { background: #f87171; color: #fff; border-color: #f87171; }
+    .mode-switch-mobile { height: 34px; }
+    .mode-switch-mobile button { font-size: 0.76rem; padding: 0 14px; }
+    /* Mobile-only settings rows hidden on desktop */
+    .mobile-only-row { display: none; }
+
+    /* ============================================================
+       LAYOUT + SIDEBAR (question navigator)
+    ============================================================ */
+    #body-layout { display: flex; flex: 1; margin-top: var(--header-height); transition: margin-top 0.35s cubic-bezier(.4,0,.2,1); }
+    #sidebar {
+        width: var(--sidebar-width); flex-shrink: 0; position: sticky; top: var(--header-height); align-self: flex-start;
+        height: calc(100vh - var(--header-height)); overflow-y: auto; padding: 1.2rem 0 2.5rem;
+        background: var(--bg-sidebar); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);
+        border-right: 1px solid var(--border-subtle);
+        transition: width 0.32s cubic-bezier(.4,0,.2,1), opacity 0.25s, padding 0.32s;
+    }
+    #sidebar.collapsed { width: 0; opacity: 0; padding: 0; overflow: hidden; border-right: none; }
+
+    /* Drag handle to resize the sidebar */
+    #sidebar-resizer {
+        flex-shrink: 0; width: 7px; margin-left: -7px; z-index: 120;
+        position: sticky; top: var(--header-height); align-self: flex-start;
+        height: calc(100vh - var(--header-height)); cursor: col-resize;
+        background: transparent; transition: background 0.2s;
+        display: flex; align-items: center; justify-content: center;
+    }
+    #sidebar-resizer::before {
+        content: ""; width: 2px; height: 34px; border-radius: 2px;
+        background: var(--border-color); opacity: 0; transition: opacity 0.2s, background 0.2s;
+    }
+    #sidebar-resizer:hover::before, body.resizing #sidebar-resizer::before { opacity: 1; background: var(--text-accent); }
+    #sidebar-resizer:hover { background: var(--bg-hover); }
+    /* Hide the handle whenever the navigator is collapsed */
+    #sidebar.collapsed ~ #sidebar-resizer { display: none; }
+    /* While dragging, suppress the width transition for 1:1 tracking */
+    body.resizing #sidebar { transition: none; }
+    body.resizing { cursor: col-resize; user-select: none; -webkit-user-select: none; }
+
+    .nav-summary { padding: 0 1.15rem 1rem; margin-bottom: 0.4rem; border-bottom: 1px solid var(--border-subtle); }
+    .nav-summary-title { font-size: 0.62rem; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: var(--text-muted); margin-bottom: 0.7rem; }
+    .progress-track { height: 8px; border-radius: 100px; background: var(--bg-input); overflow: hidden; border: 1px solid var(--border-subtle); }
+    .progress-fill { height: 100%; width: 0%; border-radius: 100px; background: linear-gradient(90deg, var(--text-accent), var(--text-accent-2)); transition: width 0.35s ease; }
+    .nav-stats { display: flex; justify-content: space-between; margin-top: 0.6rem; font-size: 0.74rem; color: var(--text-muted); }
+    .nav-stats b { color: var(--text-main); font-variant-numeric: tabular-nums; }
+    .nav-flag-count { color: var(--flag-color, #f5a524); }
+
+    .nav-section { padding: 0.5rem 1.15rem 0.2rem; }
+    .nav-section-label {
+        display: flex; align-items: center; gap: 8px; font-size: 0.64rem; font-weight: 700; letter-spacing: 0.08em;
+        text-transform: uppercase; color: var(--text-accent); margin: 0.9rem 0 0.7rem; line-height: 1.4;
+    }
+    .nav-section-label .sec-num { flex-shrink: 0; width: 18px; height: 18px; border-radius: 5px; background: var(--bg-active); display: inline-flex; align-items: center; justify-content: center; font-size: 0.62rem; }
+    .nav-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(38px, 1fr)); gap: 6px; }
+
+    .nav-cell {
+        position: relative; aspect-ratio: 1; border-radius: 9px; cursor: pointer;
+        border: 1.5px solid var(--border-color); background: var(--bg-input);
+        color: var(--text-muted); font-family: var(--font-mono); font-size: 0.76rem; font-weight: 600;
+        display: flex; align-items: center; justify-content: center; transition: all 0.16s;
+    }
+    .nav-cell:hover { transform: translateY(-1px); border-color: var(--text-accent); color: var(--text-main); }
+    .nav-cell.answered { background: var(--bg-active); border-color: var(--text-accent); color: var(--text-accent); }
+    .nav-cell.current { box-shadow: 0 0 0 2px var(--text-accent); border-color: var(--text-accent); }
+    .nav-cell.correct { background: var(--correct-bg, rgba(52,211,153,0.22)); border-color: var(--correct, #34d399); color: var(--correct, #34d399); }
+    .nav-cell.incorrect { background: var(--incorrect-bg, rgba(248,113,113,0.2)); border-color: var(--incorrect, #f87171); color: var(--incorrect, #f87171); }
+    .nav-cell .flag-dot { position: absolute; top: -4px; right: -4px; width: 12px; height: 12px; border-radius: 50%; background: var(--flag-color, #f5a524); border: 2px solid var(--bg-sidebar); display: none; }
+    .nav-cell.flagged .flag-dot { display: block; }
+
+    .nav-legend { padding: 1rem 1.15rem 0; margin-top: 0.6rem; border-top: 1px solid var(--border-subtle); display: flex; flex-direction: column; gap: 7px; }
+    .legend-item { display: flex; align-items: center; gap: 9px; font-size: 0.72rem; color: var(--text-muted); }
+    .legend-swatch { width: 16px; height: 16px; border-radius: 5px; border: 1.5px solid var(--border-color); flex-shrink: 0; position: relative; }
+    .legend-swatch.answered { background: var(--bg-active); border-color: var(--text-accent); }
+    .legend-swatch.flagged::after { content: ""; position: absolute; top: -3px; right: -3px; width: 9px; height: 9px; border-radius: 50%; background: var(--flag-color, #f5a524); border: 1.5px solid var(--bg-sidebar); }
+    .legend-swatch.correct { background: var(--correct-bg, rgba(52,211,153,0.22)); border-color: var(--correct, #34d399); }
+    .legend-swatch.incorrect { background: var(--incorrect-bg, rgba(248,113,113,0.2)); border-color: var(--incorrect, #f87171); }
+
+    /* ============================================================
+       MAIN + QUIZ
+    ============================================================ */
+    #main-content { flex: 1; min-width: 0; padding: clamp(1.6rem, 3vw, 2.6rem) clamp(1rem, 4vw, 3rem) 5rem; max-width: 860px; margin: 0 auto; width: 100%; }
+
+    .quiz-hero { margin-bottom: 2rem; }
+    .quiz-eyebrow { font-family: var(--font-mono); font-size: 0.72rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--text-accent); margin-bottom: 0.7rem; }
+    .quiz-title { font-size: clamp(1.6rem, 4vw, 2.4rem); font-weight: 800; letter-spacing: -0.02em; line-height: 1.1; background: linear-gradient(120deg, var(--text-accent), var(--text-accent-2)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; width: fit-content; }
+    body.no-accents .quiz-title { background: none; -webkit-text-fill-color: var(--solid-accent); color: var(--solid-accent); }
+    .quiz-meta { display: flex; flex-wrap: wrap; gap: 1.4rem; margin-top: 1.1rem; padding-top: 1.1rem; border-top: 1px solid var(--border-subtle); }
+    .qm { display: flex; flex-direction: column; gap: 2px; }
+    .qm .n { font-size: 1.2rem; font-weight: 700; color: var(--text-main); font-variant-numeric: tabular-nums; }
+    .qm .l { font-size: 0.64rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-muted); }
+    .mode-hint { margin-top: 1.1rem; padding: 0.7rem 1rem; border-radius: 10px; background: var(--bg-active); border: 1px solid var(--border-color); font-size: 0.82rem; color: var(--text-main); display: flex; align-items: center; gap: 9px; }
+    .mode-hint .mh-ic { font-size: 1rem; }
+
+    /* section divider between question groups */
+    .section-divider { display: flex; align-items: center; gap: 14px; margin: 2.4rem 0 1.4rem; }
+    .section-divider:first-of-type { margin-top: 0.5rem; }
+    .section-divider .sd-chip { font-family: var(--font-mono); font-size: 0.72rem; font-weight: 700; color: var(--text-accent); padding: 4px 10px; border-radius: 8px; background: var(--bg-active); white-space: nowrap; }
+    .section-divider .sd-name { font-size: 1.02rem; font-weight: 700; color: var(--text-main); }
+    .section-divider .sd-rule { flex: 1; height: 1px; background: var(--border-subtle); }
+
+    /* question card */
+    .question-card { position: relative; background: var(--bg-card); border: 1px solid var(--border-subtle); border-radius: var(--radius); padding: 1.4rem 1.5rem; margin-bottom: 1.3rem; scroll-margin-top: calc(var(--header-height) + 16px); transition: border-color 0.2s, box-shadow 0.2s; }
+    .question-card.flagged { border-color: var(--flag-color, #f5a524); box-shadow: 0 0 0 1px var(--flag-color, #f5a524); }
+    .q-top { display: flex; align-items: flex-start; gap: 12px; margin-bottom: 0.5rem; }
+    .q-index { flex-shrink: 0; font-family: var(--font-mono); font-size: 0.82rem; font-weight: 700; color: var(--text-accent); background: var(--bg-active); border-radius: 8px; padding: 3px 9px; }
+    .q-spacer { flex: 1; }
+    .flag-btn { flex-shrink: 0; display: inline-flex; align-items: center; gap: 6px; cursor: pointer; padding: 5px 11px; border-radius: 100px; background: none; border: 1px solid var(--border-color); color: var(--text-muted); font-family: var(--font-main); font-size: 0.74rem; font-weight: 600; transition: all 0.18s; }
+    .flag-btn:hover { color: var(--flag-color, #f5a524); border-color: var(--flag-color, #f5a524); }
+    .question-card.flagged .flag-btn { background: var(--flag-color, #f5a524); color: #1a1205; border-color: var(--flag-color, #f5a524); }
+
+    .lo-box { display: none; margin-bottom: 1rem; padding: 0.7rem 0.9rem; border-radius: 10px; background: var(--bg-input); border-left: 3px solid var(--text-accent); font-size: 0.82rem; color: var(--text-muted); line-height: 1.5; }
+    body.show-lo .lo-box { display: block; }
+    .lo-box .lo-tag { font-family: var(--font-mono); font-size: 0.64rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-accent); display: block; margin-bottom: 3px; }
+
+    .question-text { font-size: 1.02rem; line-height: 1.6; color: var(--text-main); margin-bottom: 1.1rem; }
+
+    .options-grid { display: flex; flex-direction: column; gap: 0.6rem; }
+    .option-label { display: flex; align-items: flex-start; gap: 12px; padding: 0.85rem 1rem; border: 1px solid var(--border-color); border-radius: 11px; cursor: pointer; transition: background 0.16s, border-color 0.16s; background: var(--bg-input); }
+    .option-label:hover { border-color: var(--text-accent); background: var(--bg-hover); }
+    .option-label input { display: none; }
+    .opt-key { flex-shrink: 0; width: 24px; height: 24px; border-radius: 7px; border: 1.5px solid var(--border-color); display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 0.8rem; color: var(--text-muted); transition: all 0.16s; }
+    .option-label:hover .opt-key { border-color: var(--text-accent); color: var(--text-accent); }
+    .option-label.selected { border-color: var(--text-accent); background: var(--bg-active); }
+    .option-label.selected .opt-key { background: var(--text-accent); border-color: var(--text-accent); color: var(--button-text); }
+    .opt-text { flex: 1; font-size: 0.94rem; line-height: 1.45; padding-top: 1px; }
+    .option-label.locked { cursor: default; pointer-events: none; }
+    .option-label.answer-correct { border-color: var(--correct, #34d399); background: var(--correct-bg, rgba(52,211,153,0.14)); }
+    .option-label.answer-correct .opt-key { background: var(--correct, #34d399); border-color: var(--correct, #34d399); color: #05130d; }
+    .option-label.answer-wrong { border-color: var(--incorrect, #f87171); background: var(--incorrect-bg, rgba(248,113,113,0.12)); }
+    .option-label.answer-wrong .opt-key { background: var(--incorrect, #f87171); border-color: var(--incorrect, #f87171); color: #150404; }
+    .opt-mark { margin-left: auto; font-weight: 700; font-size: 0.9rem; align-self: center; }
+    .option-label.answer-correct .opt-mark { color: var(--correct, #34d399); }
+    .option-label.answer-wrong .opt-mark { color: var(--incorrect, #f87171); }
+
+    /* submit + feedback */
+    .q-submit { margin-top: 1.1rem; display: inline-flex; align-items: center; gap: 8px; padding: 9px 20px; border-radius: 10px; cursor: pointer; font-family: var(--font-main); font-size: 0.86rem; font-weight: 700; background: var(--button-bg); color: var(--button-text); border: 1px solid var(--button-bg); transition: transform 0.15s, box-shadow 0.2s, opacity 0.2s; }
+    .q-submit:hover { transform: translateY(-1px); box-shadow: 0 6px 18px var(--card-glow); }
+    .q-submit.hidden { display: none; }
+
+    .feedback { display: none; margin-top: 1.2rem; border-radius: 12px; overflow: hidden; border: 1px solid var(--border-color); animation: fb-in 0.3s ease; }
+    @keyframes fb-in { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: translateY(0); } }
+    .feedback.show { display: block; }
+    .feedback-header { display: flex; align-items: center; gap: 9px; padding: 0.8rem 1.1rem; font-weight: 700; font-size: 0.92rem; }
+    .feedback.correct .feedback-header { background: var(--correct-bg, rgba(52,211,153,0.16)); color: var(--correct, #34d399); }
+    .feedback.incorrect .feedback-header { background: var(--incorrect-bg, rgba(248,113,113,0.14)); color: var(--incorrect, #f87171); }
+    .feedback-body { padding: 1rem 1.1rem; }
+    .feedback-body .fb-line { font-size: 0.9rem; margin-bottom: 0.7rem; color: var(--text-main); }
+    .feedback-body .fb-line:last-child { margin-bottom: 0; }
+    .rationale, .source { font-size: 0.88rem; line-height: 1.6; color: var(--text-main); padding: 0.8rem 0.95rem; border-radius: 9px; background: var(--bg-input); margin-top: 0.7rem; }
+    .rationale strong, .source strong { color: var(--text-accent); }
+    .source { color: var(--text-muted); font-size: 0.82rem; }
+
+    /* finish bar + results */
+    .quiz-end { margin-top: 2.4rem; display: flex; align-items: center; justify-content: center; gap: 12px; flex-wrap: wrap; }
+    .quiz-end.hidden { display: none; }
+    .btn-finish { display: inline-flex; align-items: center; gap: 8px; padding: 12px 28px; border-radius: 11px; cursor: pointer; font-family: var(--font-main); font-size: 0.95rem; font-weight: 700; background: var(--button-bg); color: var(--button-text); border: none; transition: transform 0.15s, box-shadow 0.2s, opacity 0.2s; }
+    .btn-finish:hover { transform: translateY(-1px); box-shadow: 0 8px 22px var(--card-glow); }
+    .btn-finish:disabled { opacity: 0.5; cursor: not-allowed; transform: none; box-shadow: none; }
+
+    /* Tutor live score tracker (top of page) */
+    #tutor-tracker { display: none; margin-bottom: 1.6rem; scroll-margin-top: calc(var(--header-height) + 16px); }
+    #tutor-tracker.show { display: block; animation: fb-in 0.3s ease; }
+    .tt-card { display: flex; align-items: center; gap: 1rem; flex-wrap: wrap; padding: 0.9rem 1.2rem; border: 1px solid var(--border-color); border-radius: var(--radius); background: linear-gradient(120deg, color-mix(in srgb, var(--text-accent) 10%, transparent), transparent); }
+    .tt-label { font-family: var(--font-mono); font-size: 0.66rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--text-accent); }
+    .tt-main { font-size: 1.05rem; font-weight: 800; color: var(--text-main); font-variant-numeric: tabular-nums; }
+    .tt-main .tt-pct { color: var(--text-accent); }
+    .tt-tallies { display: flex; gap: 14px; flex-wrap: wrap; margin-left: auto; font-size: 0.82rem; font-weight: 600; font-variant-numeric: tabular-nums; }
+    .tt-tallies .tt-correct { color: var(--correct, #34d399); }
+    .tt-tallies .tt-incorrect { color: var(--incorrect, #f87171); }
+    .tt-tallies .tt-remaining { color: var(--text-muted); }
+    .tt-track { flex-basis: 100%; height: 7px; border-radius: 100px; background: var(--bg-input); overflow: hidden; border: 1px solid var(--border-subtle); }
+    .tt-fill { height: 100%; width: 0%; border-radius: 100px; background: linear-gradient(90deg, var(--text-accent), var(--text-accent-2)); transition: width 0.35s ease; }
+
+    #results-card { display: none; margin-bottom: 2rem; border: 1px solid var(--border-color); border-radius: var(--radius); overflow: hidden; background: var(--bg-card); scroll-margin-top: calc(var(--header-height) + 16px); }
+    #results-card.show { display: block; animation: fb-in 0.4s ease; }
+    .results-top { padding: 1.6rem 1.5rem; display: flex; align-items: center; gap: 1.5rem; flex-wrap: wrap; background: linear-gradient(120deg, color-mix(in srgb, var(--text-accent) 12%, transparent), transparent); }
+    .score-ring { --pct: 0; flex-shrink: 0; width: 104px; height: 104px; border-radius: 50%; display: grid; place-items: center; background: conic-gradient(var(--text-accent) calc(var(--pct) * 1%), var(--bg-input) 0); }
+    .score-ring-inner { width: 82px; height: 82px; border-radius: 50%; background: var(--bg-card); display: grid; place-items: center; text-align: center; }
+    .score-ring .sr-pct { font-size: 1.5rem; font-weight: 800; color: var(--text-main); line-height: 1; }
+    .score-ring .sr-lbl { font-size: 0.58rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-muted); margin-top: 2px; }
+    .results-headline { flex: 1; min-width: 200px; }
+    .results-headline h2 { font-size: 1.4rem; font-weight: 800; margin-bottom: 0.5rem; }
+    .results-headline p { font-size: 0.9rem; color: var(--text-muted); }
+    .results-tally { display: flex; gap: 14px; flex-wrap: wrap; margin-bottom: 0.5rem; }
+    .results-tally .tally { font-size: 0.86rem; font-weight: 600; font-variant-numeric: tabular-nums; }
+    .results-tally .correct-tally { color: var(--correct, #34d399); }
+    .results-tally .incorrect-tally { color: var(--incorrect, #f87171); }
+    .results-saved { font-size: 0.8rem; color: var(--text-muted); }
+    .results-actions { display: flex; gap: 10px; flex-wrap: wrap; padding: 1.1rem 1.5rem; border-top: 1px solid var(--border-subtle); }
+    .results-btn { display: inline-flex; align-items: center; gap: 7px; padding: 8px 16px; border-radius: 10px; cursor: pointer; font-family: var(--font-main); font-size: 0.82rem; font-weight: 600; background: var(--bg-input); color: var(--text-main); border: 1px solid var(--border-color); text-decoration: none; transition: all 0.18s; }
+    .results-btn:hover { border-color: var(--text-accent); color: var(--text-accent); }
+    .results-btn.primary { background: var(--button-bg); color: var(--button-text); border-color: var(--button-bg); }
+    .results-btn.danger-outline { color: #f87171; border-color: rgba(248,113,113,0.5); }
+    .results-btn.danger-outline:hover { background: #f87171; color: #fff; border-color: #f87171; }
+    .section-scores { padding: 0 1.5rem 1.4rem; display: flex; flex-direction: column; gap: 0.7rem; }
+    .sec-score-row { display: flex; align-items: center; gap: 12px; font-size: 0.85rem; }
+    .sec-score-name { flex: 1; color: var(--text-main); }
+    .sec-score-bar { flex: 1.4; height: 7px; border-radius: 100px; background: var(--bg-input); overflow: hidden; }
+    .sec-score-bar span { display: block; height: 100%; background: var(--text-accent); border-radius: 100px; }
+    .sec-score-val { font-variant-numeric: tabular-nums; color: var(--text-muted); min-width: 48px; text-align: right; }
+
+    /* Retry results — how the previously-missed questions went on the retry pass */
+    .retry-results { margin: 0 1.5rem 1.4rem; padding: 1rem 1.1rem; border: 1px solid var(--border-color); border-radius: 12px; background: var(--bg-active); }
+    .retry-results-head { display: flex; flex-wrap: wrap; align-items: baseline; gap: 4px 12px; margin-bottom: 0.75rem; }
+    .rr-title { font-family: var(--font-mono); font-size: 0.66rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--text-accent); }
+    .rr-score { font-size: 0.9rem; color: var(--text-main); }
+    .rr-score b { font-variant-numeric: tabular-nums; }
+    .retry-chips { display: flex; flex-wrap: wrap; gap: 6px; }
+    .retry-chip { font-family: var(--font-mono); font-size: 0.72rem; font-weight: 700; padding: 4px 9px; border-radius: 7px; border: 1px solid var(--border-color); background: var(--bg-input); color: var(--text-muted); cursor: pointer; transition: transform 0.15s, border-color 0.15s; }
+    .retry-chip:hover { transform: translateY(-1px); }
+    .retry-chip.ok { color: var(--correct, #34d399); border-color: var(--correct, #34d399); background: var(--correct-bg, rgba(52,211,153,0.14)); }
+    .retry-chip.no { color: var(--incorrect, #f87171); border-color: var(--incorrect, #f87171); background: var(--incorrect-bg, rgba(248,113,113,0.12)); }
+
+    /* Help button (hero) + controls guide modal */
+    .help-btn {
+        display: inline-flex; align-items: center; gap: 8px; margin-top: 1.1rem;
+        padding: 8px 15px; border-radius: 10px; cursor: pointer;
+        background: var(--bg-active); color: var(--text-accent);
+        border: 1px solid var(--border-color); font-family: var(--font-main);
+        font-size: 0.82rem; font-weight: 600;
+        transition: background 0.18s, border-color 0.18s, transform 0.15s;
+    }
+    .help-btn:hover { background: var(--bg-hover); border-color: var(--text-accent); transform: translateY(-1px); }
+    .help-btn svg { display: block; }
+    .hero-actions { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; margin-top: 1.1rem; }
+    .hero-actions .help-btn { margin-top: 0; }
+    .autosub-btn .autosub-box {
+        width: 15px; height: 15px; border-radius: 4px; border: 1.6px solid var(--border-color);
+        display: inline-flex; align-items: center; justify-content: center; flex-shrink: 0;
+        transition: background 0.15s, border-color 0.15s;
+    }
+    .autosub-btn[aria-checked="true"] { border-color: var(--text-accent); background: var(--bg-hover); color: var(--text-accent); }
+    .autosub-btn[aria-checked="true"] .autosub-box { background: var(--text-accent); border-color: var(--text-accent); }
+    .autosub-btn[aria-checked="true"] .autosub-box::after {
+        content: ''; width: 4px; height: 8px; border: solid var(--bg-card); border-width: 0 2px 2px 0;
+        transform: rotate(45deg); margin-top: -2px;
+    }
+
+    #help-overlay {
+        display: none; position: fixed; inset: 0; z-index: 500;
+        background: rgba(0,0,0,0.55); backdrop-filter: blur(4px); -webkit-backdrop-filter: blur(4px);
+        padding: clamp(1rem, 4vh, 3rem) 1rem; overflow-y: auto;
+    }
+    #help-overlay.open { display: flex; align-items: flex-start; justify-content: center; animation: fb-in 0.2s ease; }
+    .help-card {
+        width: 100%; max-width: 620px; margin: auto; background: var(--bg-card);
+        border: 1px solid var(--border-color); border-radius: var(--radius);
+        box-shadow: 0 24px 60px rgba(0,0,0,0.5); overflow: hidden;
+    }
+    .help-head {
+        display: flex; align-items: center; gap: 12px; padding: 1.05rem 1.3rem;
+        border-bottom: 1px solid var(--border-subtle);
+        background: linear-gradient(120deg, color-mix(in srgb, var(--text-accent) 12%, transparent), transparent);
+    }
+    .help-head svg { color: var(--text-accent); flex-shrink: 0; }
+    .help-head h2 { font-size: 1.12rem; font-weight: 800; flex: 1; }
+    .help-close {
+        flex-shrink: 0; width: 34px; height: 34px; border-radius: 9px; cursor: pointer;
+        background: none; border: 1px solid var(--border-color); color: var(--text-main);
+        font-size: 1rem; line-height: 1; display: inline-flex; align-items: center; justify-content: center;
+        transition: background 0.18s, border-color 0.18s, color 0.18s;
+    }
+    .help-close:hover { background: var(--bg-hover); border-color: var(--text-accent); color: var(--text-accent); }
+    .help-body { padding: 1.2rem 1.3rem 1.4rem; }
+    .help-section + .help-section { margin-top: 1.3rem; padding-top: 1.2rem; border-top: 1px solid var(--border-subtle); }
+    .help-section h3 {
+        font-family: var(--font-mono); font-size: 0.68rem; letter-spacing: 0.12em; text-transform: uppercase;
+        color: var(--text-accent); margin-bottom: 0.8rem;
+    }
+    .key-row { display: flex; align-items: flex-start; gap: 14px; padding: 6px 0; font-size: 0.9rem; }
+    .key-row + .key-row { border-top: 1px solid var(--border-subtle); }
+    .key-keys { flex-shrink: 0; display: inline-flex; gap: 5px; flex-wrap: wrap; align-items: center; min-width: 120px; }
+    .key-desc { color: var(--text-main); padding-top: 3px; }
+    .help-body kbd {
+        font-family: var(--font-mono); font-size: 0.76rem; font-weight: 700;
+        min-width: 24px; text-align: center; padding: 3px 7px; border-radius: 6px;
+        background: var(--bg-input); color: var(--text-main);
+        border: 1px solid var(--border-color); border-bottom-width: 2px;
+        display: inline-block; line-height: 1.2;
+    }
+    .help-body .key-sep { color: var(--text-muted); font-size: 0.8rem; }
+    .help-tip { font-size: 0.9rem; line-height: 1.6; color: var(--text-main); }
+    .help-tip b { color: var(--text-accent); }
+    .help-tip + .help-tip { margin-top: 0.6rem; }
+
+    .quiz-return { display: flex; justify-content: center; gap: 12px; flex-wrap: wrap; margin-top: 2.5rem; }
+    .btn-link { display: inline-flex; align-items: center; gap: 8px; padding: 10px 20px; border-radius: 10px; text-decoration: none; font-weight: 600; font-size: 0.88rem; color: var(--text-accent); border: 1px solid var(--border-color); background: none; font-family: var(--font-main); cursor: pointer; transition: all 0.2s; }
+    .btn-link:hover { background: var(--bg-active); border-color: var(--text-accent); }
+
+    #site-footer { position: relative; z-index: 1; text-align: center; padding: 2rem 1rem 2.6rem; border-top: 1px solid var(--border-subtle); font-size: 0.76rem; color: var(--text-muted); }
+    #site-footer a { color: var(--text-accent); text-decoration: none; }
+
+    /* Highlighter tool */
+    /* Sidebar tools (reset) */
+    .nav-tools { padding: 1rem 1.15rem 0; margin-top: 0.6rem; border-top: 1px solid var(--border-subtle); }
+    .nav-tool-btn { width: 100%; display: flex; align-items: center; justify-content: center; gap: 8px; padding: 0.6rem 0.8rem; border-radius: 10px; cursor: pointer; font-family: var(--font-main); font-size: 0.8rem; font-weight: 600; background: var(--bg-input); border: 1px solid var(--border-subtle); color: var(--text-muted); transition: all 0.18s; }
+    .nav-tool-btn svg { flex-shrink: 0; }
+    .nav-tool-btn.danger:hover { color: #fff; background: #f87171; border-color: #f87171; }
+    .nav-tool-btn.confirm { color: #fff; background: #f87171; border-color: #f87171; }
+    body.hl-mode .question-text, body.hl-mode .opt-text { cursor: text; }
+    body.hl-mode .question-card { --hl-hint: 1; }
+    mark.hl { background: var(--flag-color, #f5a524); color: #1a1205; border-radius: 3px; padding: 0 1px; cursor: pointer; }
+    [data-theme="light"] mark.hl, [data-theme="sepia"] mark.hl { color: #1a1205; }
+
+    /* Strikethrough / eliminated option */
+    .option-label.eliminated { opacity: 0.5; }
+    .option-label.eliminated .opt-text { text-decoration: line-through; text-decoration-thickness: 2px; }
+    .option-label.eliminated .opt-key { opacity: 0.6; }
+    /* keep press-and-hold-to-eliminate from starting a text selection / callout on touch
+       (text selection is still allowed while the highlighter is on) */
+    body:not(.hl-mode) .option-label { -webkit-touch-callout: none; -webkit-user-select: none; user-select: none; }
+
+    .retry-banner { display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap; margin-bottom: 1.4rem; padding: 0.85rem 1.1rem; border-radius: 12px; background: var(--bg-active); border: 1px solid var(--border-color); font-size: 0.88rem; color: var(--text-main); }
+
+    /* color-accents off: neutralize the multi-color bits already handled by theme --solid-accent */
+    body.no-accents .quiz-title { -webkit-text-fill-color: var(--solid-accent); }
+
+    @media (max-width: 820px) {
+        :root { --sidebar-width: 280px; }
+        #sidebar { position: fixed; top: var(--header-height); left: 0; z-index: 190; box-shadow: 8px 0 34px rgba(0,0,0,0.4); }
+        #sidebar.collapsed { width: 0; opacity: 0; padding: 0; }
+        #sidebar-resizer { display: none; }   /* sidebar is an overlay on mobile — no resizing */
+        #main-content { padding: 1.4rem 1.1rem 5rem; }
+        /* Keep mode toggle in the header; move only the theme picker into settings */
+        .header-controls .header-theme { display: none; }
+        .mobile-only-row { display: flex; }
+        #settings-panel { min-width: 258px; max-width: calc(100vw - 1.6rem); }
+        .mode-switch button { padding: 0 11px; }
+    }
+    @media (max-width: 560px) {
+        .brand-full { display: none; } .brand-short { display: inline; } .brand-sub { display: none; }
+        .brand-title { font-size: 1.05rem; overflow: visible; }
+        .icon-btn .btn-label { display: none; }   /* LO button shows icon only */
+        .header-controls { gap: 6px; }
+    }
+    /* On phones, Tutor mode adds the Grade toggle to the header — hide the brand text then
+       (like Firefox does) so the controls never overlap. Exam mode shows it again. Desktop is untouched. */
+    @media (max-width: 640px) {
+        body.mode-tutor .brand-text { display: none; }
+    }
+    @media (prefers-reduced-motion: reduce) { *, *::before, *::after { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; } html { scroll-behavior: auto; } }
+    /* Reset buttons (top pill + two-click confirm) */
+    .reset-btn { color: #f87171; border-color: rgba(248,113,113,0.5); }
+    .reset-btn:hover { background: #f87171; color: #fff; border-color: #f87171; }
+    .reset-armed, .reset-armed:hover { background: #f87171 !important; color: #fff !important; border-color: #f87171 !important; }
+</style>
+</head>
+
+<body>
+
+<canvas id="neural-bg" aria-hidden="true"></canvas>
+<div id="wash" aria-hidden="true"></div>
+
+<div id="app">
+
+<!-- ============ HEADER ============ -->
+<header id="main-header">
+    <button id="sidebar-toggle" title="Toggle question navigator" aria-label="Toggle question navigator">
+        <span></span><span></span><span></span>
+    </button>
+
+    <div class="brand">
+        <div class="brand-mark" aria-hidden="true">
+            <svg viewBox="0 0 32 32" fill="none">
+                <defs><linearGradient id="bm" x1="0" y1="0" x2="32" y2="32"><stop offset="0" stop-color="var(--text-accent)"/><stop offset="1" stop-color="var(--text-accent-2)"/></linearGradient></defs>
+                <path d="M16 4c-3 0-5.5 2-6 4.7C7.5 9 5.5 11 5.5 13.5c0 1.2.4 2.3 1.2 3.1-.5.8-.8 1.7-.8 2.7 0 2.7 2.2 4.9 4.9 4.9.3 1.6 1.7 2.8 3.4 2.8 1 0 1.8-.4 2.4-1V6.6C16.5 5 16.3 4 16 4z" fill="url(#bm)" opacity="0.92"/>
+                <path d="M16 4c3 0 5.5 2 6 4.7 2.5.3 4.5 2.3 4.5 4.8 0 1.2-.4 2.3-1.2 3.1.5.8.8 1.7.8 2.7 0 2.7-2.2 4.9-4.9 4.9-.3 1.6-1.7 2.8-3.4 2.8-1 0-1.8-.4-2.4-1V6.6C15.5 5 15.7 4 16 4z" fill="url(#bm)"/>
+                <circle cx="11" cy="13" r="1.1" fill="var(--bg-card)"/><circle cx="21" cy="13" r="1.1" fill="var(--bg-card)"/><circle cx="13" cy="19" r="1.1" fill="var(--bg-card)"/><circle cx="19" cy="19" r="1.1" fill="var(--bg-card)"/>
+            </svg>
+        </div>
+        <div class="brand-text">
+            <div class="brand-title"><span class="brand-full">Brain &amp; Behavior</span><span class="brand-short">B&amp;B</span></div>
+            <div class="brand-sub">Week 51 · B&amp;B Wk 1 · Part 4 Practice Quiz</div>
+        </div>
+    </div>
+
+    <div class="header-controls">
+        <div class="mode-switch" role="group" aria-label="Quiz mode">
+            <button id="mode-tutor" class="active" onclick="setMode('tutor')" title="Tutor mode: instant feedback per question">Tutor</button>
+            <button id="mode-exam" onclick="setMode('exam')" title="Exam mode: grade at the end">Exam</button>
+        </div>
+        <button id="grade-btn" class="icon-btn" onclick="toggleGradeTrack()" title="Live score tracker (tutor mode)" aria-label="Toggle live score tracker" aria-pressed="false">
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19V10"/><path d="M10 19V5"/><path d="M16 19v-7"/><path d="M3 21h18"/></svg>
+            <span class="btn-label">Grade</span>
+        </button>
+        <button id="lo-btn" class="icon-btn" onclick="toggleLOs()" title="Show / hide learning objectives" aria-label="Show or hide learning objectives">
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1.4" fill="currentColor" stroke="none"/></svg>
+            <span class="btn-label">LOs</span>
+        </button>
+        <button id="hl-btn" class="icon-btn" onclick="toggleHighlighter()" title="Highlighter (H)" aria-label="Toggle highlighter">
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15.5 4.5l4 4-8.5 8.5-4 1 1-4z"/><path d="M12.5 7.5l4 4"/><path d="M4 20.5h6" stroke-width="2.4"/></svg>
+        </button>
+        <select id="theme-select" class="header-theme" title="Choose color theme">
+            <option value="slate">Slate Blue</option>
+            <option value="light">Modern Light</option>
+            <option value="sepia">Sepia</option>
+            <option value="charcoal">Charcoal</option>
+            <option value="forest">Forest</option>
+            <option value="plum">Plum</option>
+            <option value="navy">Navy</option>
+            <option value="midnight">Midnight</option>
+            <option value="contrast">High Contrast</option>
+            <option value="custom">⚙️ Custom…</option>
+        </select>
+        <button id="settings-btn" class="icon-btn" onclick="toggleSettings()" title="Settings" aria-label="Settings">⚙️</button>
+    </div>
+
+    <div id="custom-builder">
+        <div class="cpg"><label>Background</label><input type="color" id="color-bg" value="#1e293b" oninput="updateCustomTheme()"></div>
+        <div class="cpg"><label>Cards</label><input type="color" id="color-card" value="#334155" oninput="updateCustomTheme()"></div>
+        <div class="cpg"><label>Text</label><input type="color" id="color-text" value="#f1f5f9" oninput="updateCustomTheme()"></div>
+        <div class="cpg"><label>Accent</label><input type="color" id="color-accent" value="#38bdf8" oninput="updateCustomTheme()"></div>
+    </div>
+
+    <div id="settings-panel">
+        <!-- Theme moves in here on small screens (header keeps it on desktop) -->
+        <div class="settings-row mobile-only-row">
+            <div class="settings-text"><div class="settings-title">Theme</div><div class="settings-sub">Color palette</div></div>
+            <select id="theme-select-m" class="mini-select" title="Choose color theme">
+                <option value="slate">Slate Blue</option>
+                <option value="light">Modern Light</option>
+                <option value="sepia">Sepia</option>
+                <option value="charcoal">Charcoal</option>
+                <option value="forest">Forest</option>
+                <option value="plum">Plum</option>
+                <option value="navy">Navy</option>
+                <option value="midnight">Midnight</option>
+                <option value="contrast">High Contrast</option>
+                <option value="custom">⚙️ Custom…</option>
+            </select>
+        </div>
+        <div class="settings-row">
+            <div class="settings-text"><div class="settings-title">Animated background</div><div class="settings-sub">Subtle motion behind the page</div></div>
+            <button id="bg-toggle" class="toggle-switch on" role="switch" aria-checked="true" onclick="toggleBackground()"><span class="toggle-knob"></span></button>
+        </div>
+        <div class="settings-row settings-subrow" id="bg-style-row">
+            <div class="settings-text"><div class="settings-title">Background style</div><div class="settings-sub">Choose the animation</div></div>
+            <select id="bg-style-select" class="mini-select" onchange="setBgStyle(this.value)">
+                <option value="neural">Neural network</option>
+                <option value="starfield">Starfield</option>
+                <option value="bubbles">Floating orbs</option>
+                <option value="grid">Pulsing grid</option>
+                <option value="waves">Waves</option>
+            </select>
+        </div>
+        <div class="settings-row">
+            <div class="settings-text"><div class="settings-title">Color accents</div><div class="settings-sub">Corner glow &amp; colored highlights</div></div>
+            <button id="accent-toggle" class="toggle-switch on" role="switch" aria-checked="true" onclick="toggleAccents()"><span class="toggle-knob"></span></button>
+        </div>
+        <div class="settings-row">
+            <div class="settings-text"><div class="settings-title">Pinned header</div><div class="settings-sub">Keep the header fixed while scrolling</div></div>
+            <button id="pin-toggle" class="toggle-switch on" role="switch" aria-checked="true" onclick="toggleHeader()"><span class="toggle-knob"></span></button>
+        </div>
+    </div>
+</header>
+
+<div id="body-layout">
+
+    <!-- ============ SIDEBAR : question navigator ============ -->
+    <nav id="sidebar" aria-label="Question navigator">
+        <div class="nav-summary">
+            <div class="nav-summary-title">Progress</div>
+            <div class="progress-track"><div class="progress-fill" id="progress-fill"></div></div>
+            <div class="nav-stats">
+                <span><b id="answered-count">0</b> / <span id="total-count">0</span> answered</span>
+                <span class="nav-flag-count">⚑ <b id="flag-count">0</b></span>
+            </div>
+        </div>
+        <div id="nav-sections"></div>
+        <div class="nav-legend" id="nav-legend">
+            <div class="legend-item"><span class="legend-swatch"></span> Unanswered</div>
+            <div class="legend-item"><span class="legend-swatch answered"></span> Answered</div>
+            <div class="legend-item"><span class="legend-swatch flagged"></span> Flagged</div>
+            <div class="legend-item legend-graded" style="display:none"><span class="legend-swatch correct"></span> Correct</div>
+            <div class="legend-item legend-graded" style="display:none"><span class="legend-swatch incorrect"></span> Incorrect</div>
+        </div>
+        <div class="nav-tools">
+            <button id="reset-quiz-btn" class="nav-tool-btn danger" onclick="resetQuizClick(this)">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 1 0 3-6.7L3 8"/><path d="M3 3v5h5"/></svg>
+                Reset quiz
+            </button>
+        </div>
+    </nav>
+
+    <!-- Drag handle: resize the question navigator (double-click to reset) -->
+    <div id="sidebar-resizer" role="separator" aria-orientation="vertical" aria-label="Resize navigator" title="Drag to resize · double-click to reset"></div>
+
+    <!-- ============ MAIN ============ -->
+    <main id="main-content">
+        <div class="quiz-hero">
+            <div class="quiz-eyebrow">Brain &amp; Behavior · Week 51 · B&amp;B Week 1</div>
+            <h1 class="quiz-title">Part 4 — Practice Quiz</h1>
+            <div class="hero-actions">
+                <button id="help-btn" class="help-btn" onclick="openHelp()" aria-haspopup="dialog" title="How to use this quiz + keyboard shortcuts">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="6" width="20" height="12" rx="2"/><path d="M6 10h.01M10 10h.01M14 10h.01M18 10h.01M7 14h10"/></svg>
+                    Keyboard &amp; controls
+                </button>
+                <button id="autosubmit-btn" class="help-btn autosub-btn" role="switch" aria-checked="false" onclick="toggleAutoSubmit()" title="Auto-submit your answer the moment you pick a choice (Tutor mode)">
+                    <span class="autosub-box" aria-hidden="true"></span>
+                    Auto-submit answers
+                </button>
+                <button id="reset-top-btn" class="help-btn reset-btn" onclick="resetQuizClick(this)" title="Reset this quiz — clears your answers, flags, eliminations and highlights">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 1 0 3-6.7L3 8"/><path d="M3 3v5h5"/></svg>
+                    Reset quiz
+                </button>
+            </div>
+            <div class="quiz-meta">
+                <div class="qm"><span class="n" id="meta-q">0</span><span class="l">Questions</span></div>
+                <div class="qm"><span class="n" id="meta-sec">0</span><span class="l">Sections</span></div>
+                <div class="qm"><span class="n" id="meta-mode">Tutor</span><span class="l">Mode</span></div>
+            </div>
+            <div class="mode-hint" id="mode-hint" style="display:none"><span class="mh-ic">💡</span><span id="mode-hint-text">New this week: you can now resize the question navigator — drag the divider between the sidebar and the questions to make it wider or narrower, and double-click the divider to snap it back to the default.</span></div>
+        </div>
+
+        <div id="tutor-tracker" aria-live="polite"></div>
+        <div id="results-card"></div>
+        <div id="quiz-root"></div>
+
+        <div class="quiz-end hidden" id="quiz-end">
+            <button class="btn-finish" id="finish-btn" onclick="finishQuiz()">Submit &amp; grade quiz</button>
+            <button class="results-btn danger-outline" onclick="resetQuizClick(this)">Reset quiz</button>
+        </div>
+
+        <div class="quiz-end hidden" id="quiz-end-tutor">
+            <button class="results-btn danger-outline" onclick="resetQuizClick(this)">Reset quiz</button>
+        </div>
+
+        <div class="quiz-return">
+            <a href="https://ibecerramcg.github.io/BnB-Practice-Quizzes/" class="btn-link">← Return to B&amp;B Directory</a>
+            <button class="btn-link" id="view-score-btn" onclick="jumpToTracker()" style="display:none">↑ View score</button>
+            <button class="btn-link" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑ Back to top</button>
+        </div>
+    </main>
+</div>
+
+<footer id="site-footer">Created by Ian Becerra · <a href="mailto:ibecerra@augusta.edu">ibecerra@augusta.edu</a> · Medical College of Georgia, Class of 2029</footer>
+</div>
+
+<!-- ============ CONTROLS / KEYBOARD GUIDE MODAL ============ -->
+<div id="help-overlay" role="dialog" aria-modal="true" aria-labelledby="help-title" onclick="if(event.target===this)closeHelp()">
+    <div class="help-card">
+        <div class="help-head">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="6" width="20" height="12" rx="2"/><path d="M6 10h.01M10 10h.01M14 10h.01M18 10h.01M7 14h10"/></svg>
+            <h2 id="help-title">How to use this quiz</h2>
+            <button class="help-close" onclick="closeHelp()" aria-label="Close guide">✕</button>
+        </div>
+        <div class="help-body">
+            <div class="help-section">
+                <h3>Keyboard shortcuts</h3>
+                <div class="key-row"><span class="key-keys"><kbd>A</kbd><span class="key-sep">–</span><kbd>E</kbd></span><span class="key-desc">Select an answer choice</span></div>
+                <div class="key-row"><span class="key-keys"><kbd>Enter</kbd></span><span class="key-desc">Submit the current question (Tutor mode)</span></div>
+                <div class="key-row"><span class="key-keys"><kbd>F</kbd></span><span class="key-desc">Flag / unflag the current question</span></div>
+                <div class="key-row"><span class="key-keys"><kbd>J</kbd><span class="key-sep">or</span><kbd>↓</kbd></span><span class="key-desc">Go to the next question</span></div>
+                <div class="key-row"><span class="key-keys"><kbd>K</kbd><span class="key-sep">or</span><kbd>↑</kbd></span><span class="key-desc">Go to the previous question</span></div>
+                <div class="key-row"><span class="key-keys"><kbd>H</kbd></span><span class="key-desc">Turn the highlighter on or off</span></div>
+                <div class="key-row"><span class="key-keys"><kbd>Esc</kbd></span><span class="key-desc">Close this guide, menus, and pop-ups</span></div>
+            </div>
+            <div class="help-section">
+                <h3>Question navigator (sidebar)</h3>
+                <p class="help-tip">Open or close the navigator with the <b>☰ button</b> at the top-left of the header.</p>
+                <p class="help-tip">Every <b>question number is clickable</b> — select one to jump straight to that question. They're grouped by section, with a <b>progress bar</b>, answered count, and flag count at the top.</p>
+                <p class="help-tip">Each number is <b>color-coded</b> by status — answered, flagged, and (once graded) correct or incorrect — with a matching <b>legend</b> at the bottom of the navigator.</p>
+                <p class="help-tip">The <b>Reset quiz</b> button at the bottom of the navigator clears your answers, flags, eliminations, and highlights so you can start fresh.</p>
+            </div>
+            <div class="help-section">
+                <h3>Highlighter</h3>
+                <p class="help-tip">Turn the highlighter on with the <b>marker button</b> in the header (or press <kbd>H</kbd>). While it's on, <b>select any text</b> in a question stem to highlight it.</p>
+                <p class="help-tip"><b>Click a highlight</b> to remove it.</p>
+            </div>
+
+            <div class="help-section">
+                <h3>Strike through / eliminate answers</h3>
+                <p class="help-tip"><b>Right-click</b> an answer choice (on a computer) or <b>press and hold</b> it (on a touch screen) to cross it out as eliminated. Repeat to bring it back.</p>
+            </div>
+            <div class="help-section">
+                <h3>Modes &amp; tools</h3>
+                <p class="help-tip"><b>Tutor</b> grades each question the moment you submit it and shows the explanation. <b>Exam</b> hides feedback until you press <b>Submit &amp; grade quiz</b> at the end.</p>
+                <p class="help-tip">Turn on <b>Grade</b> (Tutor only) for a live running score, and use <b>LOs</b> to reveal learning objectives. (See the <b>Question navigator</b> section above for jumping between questions and resetting.)</p>
+                <p class="help-tip">Turn on <b>Auto-submit answers</b> (top of the page, Tutor mode) to reveal feedback the instant you pick a choice — no need to press Submit each time.</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+/* ============================================================
+   QUIZ DATA  (extracted from the original Week-46 quiz file)
+============================================================ */
+const QUIZ_ID = 'w51p4';   // must match the B&B directory card data-quiz
+const quizData = [{"section":"Face and Scalp","fullLO":"LO1: Identify individual bones and bony landmarks underlying the surface anatomy of the face and scalp, distinguishing between the neurocranium and viscerocranium","question":"A 25-year-old man sustains blunt force trauma to the face during a basketball game, fracturing a bone that surrounds the nasal cavity. Which of the following bones is classified as part of the viscerocranium rather than the neurocranium?","options":{"A":"Frontal bone","B":"Maxilla","C":"Occipital bone","D":"Parietal bone","E":"Sphenoid bone"},"correctAnswer":"B","rationale":"The viscerocranium comprises the bones of the facial skeleton (such as the maxilla, mandible, ethmoid, vomer, and zygomatic bones), which surround the oral and nasal cavities and most of the orbit. The neurocranium is the bony casing of the brain, composed of flat bones like the frontal, sphenoid, occipital, parietal, and temporal bones.","source":"'Viscerocranium – Bones of the facial skeleton – Surrounds the oral and nasal cavities and most of the orbit' and '[Table showing] Neurocranium: Frontal, Sphenoid, Occipital, Parietal, Temporal. Viscerocranium: Mandible, Ethmoid, Vomer, Maxilla, Zygomatic, Nasal...' (Face and Scalp, PDF Page 7)"},{"section":"Face and Scalp","fullLO":"LO1: Identify individual bones and bony landmarks underlying the surface anatomy of the face and scalp, distinguishing between the neurocranium and viscerocranium","question":"A physician is evaluating a patient for an inferior alveolar nerve block. The nerve enters a specific opening on the medial aspect of the ramus of the mandible. Which of the following bony landmarks is the target for this injection?","options":{"A":"Coronoid process","B":"Foramen ovale","C":"Mandibular foramen","D":"Mental foramen","E":"Stylomastoid foramen"},"correctAnswer":"C","rationale":"The mandibular foramen is a distinct bony landmark located on the medial aspect of the ramus of the mandible. It serves as the entrance for the inferior alveolar nerve into the mandibular canal.","source":"'[Image showing medial surface of the mandible pointing to the opening on the ramus] Mandibular foramen' (Face and Scalp, PDF Page 12)"},{"section":"Face and Scalp","fullLO":"LO2: Discuss the soft tissue layers that comprise the scalp and their correlation to injuries and infections, Discuss the anatomical basis for black eyes following a scalp injury.","question":"A 12-year-old boy suffers a deep laceration to the scalp after a fall. The wound gapes widely. The physician explains that the gaping is due to tension from the frontalis and occipitalis muscles pulling on the connective tissue layer between them. Which of the following layers of the scalp was most likely transected?","options":{"A":"Aponeurosis (galea aponeurotica)","B":"Dense connective tissue","C":"Loose connective tissue","D":"Pericranium","E":"Skin"},"correctAnswer":"A","rationale":"The aponeurosis (galea aponeurotica) is the third layer of the scalp. It connects the frontalis muscle to the occipitalis muscle. Scalp lacerations that include this layer tend to gape widely because of muscular tension.","source":"'Aponeurosis (galaea aponeurotica) − Connects frontalis m. to occipitalis m. − Scalp lacerations that include this layer tend to gape because of muscular tension' (Face and Scalp, PDF Page 15)"},{"section":"Face and Scalp","fullLO":"LO2: Discuss the soft tissue layers that comprise the scalp and their correlation to injuries and infections, Discuss the anatomical basis for black eyes following a scalp injury.","question":"A 30-year-old woman is involved in a motor vehicle collision, sustaining blunt trauma to the top of her head. Two days later, she develops severe bilateral periorbital ecchymosis despite having no direct trauma to her face. Blood accumulated in which of the following scalp spaces to cause this presentation?","options":{"A":"Between the aponeurosis and dense connective tissue","B":"Between the dura mater and arachnoid mater","C":"Between the skin and dense connective tissue","D":"The pericranium","E":"The subgaleal space"},"correctAnswer":"E","rationale":"The subgaleal space (loose connective tissue) extends anteriorly to the orbits. Because the skin of the eyelids is very thin, blood that accumulates in the subgaleal space following a scalp injury can track anteriorly and become visible as periorbital ecchymosis (black eyes).","source":"'Subgaleal space can hold up to 260 mL of blood and extends: − Anteriorly to the orbits... Extravasated blood to the orbit is visible (ecchymosis) because eyelid skin is very thin' (Face and Scalp, PDF Page 17)"},{"section":"Face and Scalp","fullLO":"LO3: Identify and describe the key muscles of facial expression and mastication, including their functions and innervation. Discuss how to clinically test motor innervation of the face.","question":"A 55-year-old man presents with right-sided facial weakness. To systematically evaluate the motor function of cranial nerve VII, the physician asks the patient to \"tightly close your eyes.\" Which of the following muscles is primarily being tested by this action?","options":{"A":"Buccinator","B":"Frontalis","C":"Masseter","D":"Orbicularis oculi","E":"Orbicularis oris"},"correctAnswer":"D","rationale":"The orbicularis oculi is a circular muscle of facial expression that surrounds the eye. Clinically testing this muscle involves asking the patient to \"tightly close your eyes.\"","source":"'Testing CN VII... “Tightly close your eyes” − Testing orbicularis oculi' (Face and Scalp, PDF Page 31)"},{"section":"Face and Scalp","fullLO":"LO3: Identify and describe the key muscles of facial expression and mastication, including their functions and innervation. Discuss how to clinically test motor innervation of the face.","question":"A 40-year-old woman complains of pain and clicking when chewing. Physical examination reveals weakness in protruding and depressing the mandible (opening the mouth). Which of the following muscles of mastication is most likely impaired?","options":{"A":"Buccinator","B":"Lateral pterygoid","C":"Masseter","D":"Medial pterygoid","E":"Temporalis"},"correctAnswer":"B","rationale":"The lateral pterygoid muscle is unique among the primary muscles of mastication because it is the primary muscle responsible for depressing (opening) and protruding the mandible.","source":"'Depression − Opens mandible − Gravity; suprahyoid muscles; lateral pterygoid... Protrusion − Lateral pterygoid' and 'Lateral pterygoid Lowers the mandible' (Face and Scalp, PDF Page 80, 82)"},{"section":"Face and Scalp","fullLO":"LO4: Identify and describe the facial nerve, its branches, course, distribution, and relationship to other structures. Interpret clinical manifestations related to lesions of the facial nerve and its terminal branches depending on the location of the lesion; include facial paralysis, Bell Palsy, and parotid tumors in your discussion.","question":"A 45-year-old woman develops sudden, unilateral paralysis of her entire right face, including an inability to wrinkle her forehead or close her right eye. She is diagnosed with Bell's palsy. This condition results from an injury to the cranial nerve that exits the base of the skull through which of the following structures?","options":{"A":"Foramen ovale","B":"Foramen rotundum","C":"Foramen spinosum","D":"Internal acoustic meatus","E":"Stylomastoid foramen"},"correctAnswer":"E","rationale":"Bell's palsy is an acute paresis/paralysis of the upper and lower face resulting from an injury to the Facial nerve (CN VII). CN VII exits the cranial cavity via the internal acoustic meatus into the facial canal, but it ultimately exits the skull itself through the stylomastoid foramen before branching to innervate the face.","source":"'Bell Palsy • Acute paresis/paralysis of upper and lower face, usually unilateral − Results from an injury to CN VII' and 'Facial Nerve (CN VII): Extracranial Course • Exits the facial canal via stylomastoid foramen' (Face and Scalp, PDF Page 29, 32)"},{"section":"Face and Scalp","fullLO":"LO4: Identify and describe the facial nerve, its branches, course, distribution, and relationship to other structures. Interpret clinical manifestations related to lesions of the facial nerve and its terminal branches depending on the location of the lesion; include facial paralysis, Bell Palsy, and parotid tumors in your discussion.","question":"A 50-year-old man presents with a rapidly enlarging mass anterior to his left ear. Biopsy confirms a parotid gland tumor. The physician notes that a major nerve plexus passes directly through this gland. Which of the following functions is primarily mediated by the nerve plexus located within the parotid gland?","options":{"A":"Muscles of facial expression","B":"Muscles of mastication","C":"Parasympathetic innervation of the lacrimal gland","D":"Sensory innervation to the anterior tongue","E":"Sensory innervation to the cheek"},"correctAnswer":"A","rationale":"After exiting the stylomastoid foramen, the facial nerve (CN VII) enters the parotid gland, where it divides into 5 terminal motor branches (the \"parotid plexus\": Temporal, Zygomatic, Buccal, Marginal mandibular, Cervical) that supply the muscles of facial expression.","source":"'Facial Nerve (CN VII): Extracranial Course... Enters the parotid gland • 5 terminal motor branches to the muscles of facial expression (“parotid plexus”)' (Face and Scalp, PDF Page 29)"},{"section":"Face and Scalp","fullLO":"LO5: Discuss the sensory innervation of the face, including the main branches of the three divisions of the trigeminal nerve and their sensory distributions. Describe the anatomical basis of trigeminal neuralgia and herpes zoster infection of the trigeminal nerve. Contrast the sensory innervation of the face and scalp provided by the trigeminal nerve versus spinal nerves.","question":"A 62-year-old woman presents with sudden, excruciating, stabbing pain on her right cheek and upper lip that lasts for a few seconds. The pain is triggered by chewing or brushing her teeth. She is diagnosed with \"tic douloureux.\" Which of the following nerves is most commonly affected in this specific condition?","options":{"A":"Facial nerve","B":"Glossopharyngeal nerve","C":"Mandibular nerve","D":"Maxillary nerve","E":"Ophthalmic nerve"},"correctAnswer":"D","rationale":"Trigeminal neuralgia (tic douloureux) features sudden paroxysmal excruciating unilateral face pain. The Maxillary nerve (CN V2) is the division most commonly affected.","source":"'Trigeminal Neuralgia • Sensory disorder of CN V also called “tic doulouroux” • Sudden attacks (paroxysmal) of excruciating unilateral face pain... Maxillary n. (CN V2) most commonly affected' (Face and Scalp, PDF Page 53)"},{"section":"Face and Scalp","fullLO":"LO5: Discuss the sensory innervation of the face, including the main branches of the three divisions of the trigeminal nerve and their sensory distributions. Describe the anatomical basis of trigeminal neuralgia and herpes zoster infection of the trigeminal nerve. Contrast the sensory innervation of the face and scalp provided by the trigeminal nerve versus spinal nerves.","question":"A 70-year-old man develops a painful vesicular rash strictly localized to his forehead, upper eyelid, and the dorsum of his nose on the left side. The physician is concerned about potential corneal ulceration. This condition is caused by reactivation of a virus within which of the following sensory ganglia?","options":{"A":"Geniculate ganglion","B":"Otic ganglion","C":"Pterygopalatine ganglion","D":"Submandibular ganglion","E":"Trigeminal ganglion"},"correctAnswer":"E","rationale":"Herpes zoster of the trigeminal nerve involves reactivation of the virus in the trigeminal ganglion. The affected area in this patient (forehead, upper eyelids, dorsum of nose) corresponds exactly to the sensory distribution of the Ophthalmic nerve (CN V1).","source":"'Herpes Zoster of the Trigeminal Nerve • Herpes zoster virus infection involving the trigeminal ganglion • Eruption of groups of vesicles following the course of the affected nerve' and 'Sensory Innervation of the Face • Ophthalmic n. (CN V1) − Forehead, upper eyelids, dorsum of the nose' (Face and Scalp, PDF Page 38, 52)"},{"section":"Face and Scalp","fullLO":"LO5: Discuss the sensory innervation of the face, including the main branches of the three divisions of the trigeminal nerve and their sensory distributions. Describe the anatomical basis of trigeminal neuralgia and herpes zoster infection of the trigeminal nerve. Contrast the sensory innervation of the face and scalp provided by the trigeminal nerve versus spinal nerves.","question":"A patient complains of numbness on the posterior aspect of their scalp and the back of their neck following a severe laceration. Sensation to the anterior face and forehead is completely intact. The affected cutaneous region is innervated by which of the following?","options":{"A":"Mandibular nerve","B":"Maxillary nerve","C":"Ophthalmic nerve","D":"Posterior and anterior rami of cervical spinal nerves","E":"Terminal branches of the facial nerve"},"correctAnswer":"D","rationale":"While the trigeminal nerve (CN V) provides sensory innervation to the face and anterior scalp, the posterior scalp and the neck are innervated by spinal nerves (specifically the posterior and anterior rami of cervical nerves C2 and C3).","source":"'Trigeminal Nerve Vs. Spinal Nerves [Diagram showing Spinal nerves innervating the posterior scalp/neck via Posterior rami and Anterior rami of cervical nerves C2 and C3, contrasting with Trigeminal nerve domains]' (Face and Scalp, PDF Page 43)"},{"section":"Face and Scalp","fullLO":"LO6: Discuss the arteries and veins of the face and scalp, including their course, distribution, anastomoses (especially between intra- and extracranial venous communications) and clinical significance.","question":"A 19-year-old woman squeezes a large, painful pustule on the side of her nose. Two days later, she develops a severe headache, fever, and periorbital edema. The physician suspects a septic clot has traveled from the superficial facial veins into the cranial cavity. Through which of the following venous pathways does this infection most directly access the cavernous sinus from the facial vein?","options":{"A":"Internal jugular vein","B":"Maxillary vein","C":"Ophthalmic veins","D":"Retromandibular vein","E":"Superficial temporal vein"},"correctAnswer":"C","rationale":"Septic clots from the \"danger triangle of the face\" can travel to the cavernous sinus. Because facial veins lack valves, slowed venous flow in the cavernous sinus can cause backflow or allow emboli to travel through the anastomosing ophthalmic veins, leading to cavernous sinus thrombosis and periorbital edema.","source":"'Danger Triangle of Face... Septic clots in facial vv. May form emboli and travel to cavernous sinus − Slowed venous flow in cavernous sinus can cause back flow through ophthalmic vv. and cause periorbital edema' (Face and Scalp, PDF Page 71)"},{"section":"Face and Scalp","fullLO":"LO6: Discuss the arteries and veins of the face and scalp, including their course, distribution, anastomoses (especially between intra- and extracranial venous communications) and clinical significance.","question":"A 45-year-old man sustains a deep facial laceration just lateral to his mouth, resulting in pulsatile bleeding. The severed artery is a direct branch of the external carotid artery that changes its name to the angular artery after giving off superior and inferior labial branches. Which of the following is the injured artery?","options":{"A":"Facial artery","B":"Maxillary artery","C":"Middle meningeal artery","D":"Sphenopalatine artery","E":"Superficial temporal artery"},"correctAnswer":"A","rationale":"The facial artery is a direct branch of the external carotid. As it courses over the face, it gives off the superior and inferior labial arteries and then changes its name to the angular artery as it runs alongside the nose.","source":"'Blood Supply to Face and Scalp • Facial a. • A branch of external carotid... • Angular artery • Facial has a name change after giving off the labial branches' (Face and Scalp, PDF Page 57)"},{"section":"Face and Scalp","fullLO":"LO7: Describe the general lymphatic drainage from the face and scalp.","question":"A 24-year-old man presents with a localized skin infection on his posterior scalp. Physical examination reveals painful, swollen lymph nodes at the junction of his head and posterior neck. Which of the following groups of lymph nodes is most likely primarily involved in draining this specific region?","options":{"A":"Buccal nodes","B":"Occipital and mastoid nodes","C":"Parotid nodes","D":"Submandibular nodes","E":"Submental nodes"},"correctAnswer":"B","rationale":"The superficial ring of lymph nodes (pericervical collar) drains specific areas of the face and scalp. The occipital and mastoid nodes specifically drain the posterior scalp.","source":"'Lymphatics of Face and Scalp... Superficial ring of lymph nodes located at junction of head and neck, called pericervical collar − Occipital and mastoid drain posterior scalp' (Face and Scalp, PDF Page 72)"},{"section":"Face and Scalp","fullLO":"LO7: Describe the general lymphatic drainage from the face and scalp.","question":"A 30-year-old woman is diagnosed with squamous cell carcinoma on her chin and the center of her lower lip. To stage the cancer, the surgeon biopsies the primary draining lymph nodes for this specific area. Which of the following lymph node groups drains the chin and center of the lower lip?","options":{"A":"Mastoid nodes","B":"Occipital nodes","C":"Parotid nodes","D":"Submandibular nodes","E":"Submental nodes"},"correctAnswer":"E","rationale":"The submental lymph nodes specifically drain the chin and the center of the lower lip. (Submandibular nodes drain the upper and lateral lips).","source":"'Lymphatics of Face and Scalp... − Submental drain chin and center of lower lip' (Face and Scalp, PDF Page 72)"},{"section":"Development of the CNS","fullLO":"LO1: Identify the derivatives of neural ectoderm (CNS), neural crest cells (PNS, adrenal medulla, melanocytes), and neurogenic placodes, and predict the developmental anomalies resulting from defects in each.","question":"A newborn infant is diagnosed with an absence of normal enteric ganglia, leading to a congenital aganglionic megacolon (Hirschsprung disease). This condition is caused by the failure of specific cells to migrate to the gut during early development. These missing cells are normally derived from which of the following embryonic lineages?","options":{"A":"Endoderm","B":"Neural crest","C":"Neural tube basal plate","D":"Non-neurogenic placodes","E":"Surface ectoderm"},"correctAnswer":"B","rationale":"Neural crest cells give rise to the enteric ganglia of the gut, as well as other PNS components (sensory/autonomic ganglia, Schwann cells), the adrenal medulla, and melanocytes.","source":"'Neural Crest are ectoderm-derived... Contributes to: ... C. Autonomic ganglia ... enteric ganglia of the gut (CN X)' (Development of the CNS, PDF Page 3, 7)"},{"section":"Development of the CNS","fullLO":"LO1: Identify the derivatives of neural ectoderm (CNS), neural crest cells (PNS, adrenal medulla, melanocytes), and neurogenic placodes, and predict the developmental anomalies resulting from defects in each.","question":"A researcher is studying the embryologic origins of the inner ear. She identifies thickened regions of cranial ectoderm that are induced by mesoderm and will ultimately give rise to neurons of the vestibulocochlear nerve (CN VIII). Which of the following structures is she observing?","options":{"A":"Epibranchial placodes","B":"Lens placodes","C":"Neural crest","D":"Neurogenic placodes","E":"Surface ectoderm"},"correctAnswer":"D","rationale":"Neurogenic placodes (specifically the otic placode) are thickened regions of cranial ectoderm that give rise to the inner ear and the Vestibulocochlear N. (CN VIII).","source":"'Placodes are thickened regions of cranial ectoderm... Neurogenic placodes – give rise to the inner ear and Vestibulocochlear N. (CN VIII)' (Development of the CNS, PDF Page 3, 23)"},{"section":"Development of the CNS","fullLO":"LO2: Discuss the development of the spinal cord, including the relative locations of sensory neuron cell bodies, lower motor neuron cell bodies, and the cell bodies of preganglionic sympathetic neurons.","question":"A fetus is evaluated for a developmental anomaly affecting the spinal cord. Genetic testing reveals a mutation in the Sonic Hedgehog (SHH) protein pathway. This mutation is most likely to disrupt the normal formation of which of the following structures, which normally gives rise to motor neurons?","options":{"A":"Alar plate","B":"Basal plate","C":"Dorsal root ganglia","D":"Neural crest","E":"Roof plate"},"correctAnswer":"B","rationale":"The basal plate (ventral) is regulated by Sonic Hedgehog Protein and gives rise to motor neurons. The alar plate is regulated by TGF-beta family proteins (BMPs) and gives rise to sensory neurons.","source":"'Basal plate (ventral) regulated by Sonic Hedgehog Protein... Basal plate gives rise to motor neurons.' (Development of the CNS, PDF Page 4)"},{"section":"Development of the CNS","fullLO":"LO2: Discuss the development of the spinal cord, including the relative locations of sensory neuron cell bodies, lower motor neuron cell bodies, and the cell bodies of preganglionic sympathetic neurons.","question":"During the embryonic development of the spinal cord, preganglionic sympathetic cell bodies form within a specific region. These neurons are located in the intermediolateral cell column (IML) between T1 and L2/L3. Which of the following embryonic structures gives rise to these specific autonomic neurons?","options":{"A":"Alar plate","B":"Basal plate","C":"Neural crest","D":"Roof plate","E":"Surface ectoderm"},"correctAnswer":"B","rationale":"The basal plate gives rise to preganglionic sympathetic cell bodies (neurons) located within the intermediolateral cell column of the spinal cord. (Neural crest gives rise to postganglionic sympathetic neurons).","source":"'Development of the Sympathetic Nervous System... Basal plate gives rise to preganglionic sympathetic cell bodies (neurons) located within the intermediolateral cell column of the spinal cord' (Development of the CNS, PDF Page 7)"},{"section":"Development of the CNS","fullLO":"LO3: Describe the formation of three primary brain vesicles (prosencephalon, mesencephalon, and rhombencephalon), the five secondary brain vesicles (telencephalon, diencephalon, mesencephalon, metencephalon, and myelencephalon), and review their adult derivatives.","question":"An ultrasound of a 5-week-old embryo demonstrates the normal formation of five secondary brain vesicles. One of these vesicles will eventually develop into the cerebral hemispheres and the lateral ventricles. Which of the following is the correct embryologic term for this specific vesicle?","options":{"A":"Diencephalon","B":"Mesencephalon","C":"Metencephalon","D":"Myelencephalon","E":"Telencephalon"},"correctAnswer":"E","rationale":"The telencephalon (a secondary vesicle derived from the prosencephalon) gives rise to the cerebral hemispheres, most of the basal ganglia, and the lateral ventricles.","source":"'Telencephalon • Cerebral hemispheres • Most of basal ganglia ... Lateral ventricles' (Development of the CNS, PDF Page 9, 27)"},{"section":"Development of the CNS","fullLO":"LO3: Describe the formation of three primary brain vesicles (prosencephalon, mesencephalon, and rhombencephalon), the five secondary brain vesicles (telencephalon, diencephalon, mesencephalon, metencephalon, and myelencephalon), and review their adult derivatives.","question":"A pediatric patient presents with a congenital defect involving the structures derived from the embryonic metencephalon. Which of the following adult brain structures would most likely be structurally abnormal in this patient?","options":{"A":"Cerebellum and pons","B":"Cerebral hemispheres","C":"Medulla oblongata","D":"Midbrain","E":"Thalamus and hypothalamus"},"correctAnswer":"A","rationale":"The metencephalon is a secondary brain vesicle (derived from the rhombencephalon) that gives rise to the cerebellum and the pons in the adult brain.","source":"'Metencephalon • Cerebellum • Pons' (Development of the CNS, PDF Page 27)"},{"section":"Development of the CNS","fullLO":"LO4: Discuss the embryonic origin(s) and development of the pituitary gland.","question":"A 10-year-old boy is evaluated for short stature and found to have a severe deficiency in growth hormone. MRI reveals a congenital hypoplasia of the anterior lobe of the pituitary gland (adenohypophysis). This specific portion of the pituitary gland is embryologically derived from which of the following?","options":{"A":"Diencephalon neuroectoderm","B":"Endoderm of the foregut","C":"Neural crest cells","D":"Rathke's pouch (oral ectoderm)","E":"Surface ectoderm"},"correctAnswer":"D","rationale":"The anterior lobe of the pituitary (adenohypophysis) develops from Rathke's pouch, which is an ectodermal diverticulum of the primitive oral cavity (stomodeum).","source":"'Anterior lobe (adenohypophysis) develops from Rathke's pouch, which is an ectodermal diverticulum of the primitive oral cavity (stomodeum).' (Development of the CNS, PDF Page 10, 30)"},{"section":"Development of the CNS","fullLO":"LO4: Discuss the embryonic origin(s) and development of the pituitary gland.","question":"A patient presents with central diabetes insipidus due to a congenital defect in the posterior pituitary gland (neurohypophysis). Unlike the anterior pituitary, the posterior pituitary develops from a ventral evagination of the hypothalamus. Which of the following is the embryologic origin of this structure?","options":{"A":"Endoderm","B":"Mesoderm","C":"Neural crest","D":"Neuroectoderm (Infundibulum)","E":"Non-neural surface ectoderm"},"correctAnswer":"D","rationale":"The posterior lobe of the pituitary (neurohypophysis) develops from the infundibulum, which is a derivative of neuroectoderm (ventral evagination of the hypothalamus).","source":"'Posterior lobe (neurohypophysis) develops from the infundibulum, which is neuroectoderm (ventral evagination of the hypothalamus).' (Development of the CNS, PDF Page 30)"},{"section":"Development of the CNS","fullLO":"LO5: Describe the process of cortical neurogenesis and cell migration (inside-first, outside-last pattern) and predict the consequences of abnormal cell proliferation (e.g., microcephaly, megalencephaly) or neuronal migration failure (e.g., lissencephaly, polymicrogyria).","question":"A 6-month-old infant presents with severe developmental delays, infantile spasms, and early floppiness shifting to rigid spasticity. MRI reveals a completely smooth cerebral cortex with an absence of normal gyri and sulci. This condition is caused by an early disorder of radial cell migration where newborn neurons fail to climb past older layers along the radial glial scaffolding. Which of the following is the most likely diagnosis?","options":{"A":"Dandy-Walker malformation","B":"Encephalocele","C":"Lissencephaly","D":"Megalencephaly","E":"Polymicrogyria"},"correctAnswer":"C","rationale":"Lissencephaly (\"smooth brain\") is an early disorder of radial cell migration where neurons fail to climb past older layers, resulting in a smooth, thickened cortical surface lacking normal gyri and sulci.","source":"'Lissencephaly (Greek: “smooth brain”) • Brain surface appears smooth (agyria) or only partially folded (pachygyria), due to failed migration of neurons to the cerebral cortex... An early disorder of radial cell migration; newborn neurons fail to climb past older layers' (Development of the CNS, PDF Page 20, 37)"},{"section":"Development of the CNS","fullLO":"LO5: Describe the process of cortical neurogenesis and cell migration (inside-first, outside-last pattern) and predict the consequences of abnormal cell proliferation (e.g., microcephaly, megalencephaly) or neuronal migration failure (e.g., lissencephaly, polymicrogyria).","question":"A 2-year-old child presents with an abnormally large head circumference, severe developmental delay, and intractable seizures. Genetic testing reveals a hyperactivating mutation in the PI3K-Akt-mTOR pathway, causing excessive cell proliferation and insufficient programmed cell death in the brain. Which of the following is the most likely diagnosis?","options":{"A":"Anencephaly","B":"Lissencephaly","C":"Megalencephaly","D":"Microcephaly","E":"Polymicrogyria"},"correctAnswer":"C","rationale":"Megalencephaly (\"big brain\") is a disorder of neuron proliferation caused by a failure of cellular \"brakes,\" typically driven by hyperactivating mutations in the PI3K-Akt-mTOR cell growth pathway, leading to increased brain size and weight.","source":"'Megalencephaly (big brain) – increased brain size and weight. • Hyperactivating mutations of the PI3K/Akt/mTOR pathway drive cell proliferation and inhibit programmed cell death = too much cell proliferation and not enough cell death.' (Development of the CNS, PDF Page 19, 36)"},{"section":"Development of the CNS","fullLO":"LO5: Describe the process of cortical neurogenesis and cell migration (inside-first, outside-last pattern) and predict the consequences of abnormal cell proliferation (e.g., microcephaly, megalencephaly) or neuronal migration failure (e.g., lissencephaly, polymicrogyria).","question":"A neuroscientist is tracking the migration of neurons during the development of the cerebral cortex in a mammalian model. She observes that neurons forming the innermost layers of the cortex are established first, while subsequent neurons migrate past them to form the outer layers. Which of the following terms best describes this normal pattern of cortical lamination?","options":{"A":"Caudal-to-rostral","B":"Dorsal-to-ventral","C":"Inside-first outside-last","D":"Outside-first inside-last","E":"Ventral-to-dorsal"},"correctAnswer":"C","rationale":"Normal cortical neurogenesis and lamination follow an \"inside-first, outside-last\" pattern. The earliest born neurons migrate to the inside layers, and later born (younger) neurons migrate past them to the outside layers.","source":"'What do you need to know about neuron migration and lamination of cortical layers? inside-first, outside last' (Development of the CNS, PDF Page 34)"},{"section":"Development of the CNS","fullLO":"LO6: Predict the clinical consequences of failure of anterior neural tube closure (anencephaly, encephalocele) versus posterior neural tube closure (spina bifida occulta, meningocele, myelomeningocele), including associated risk factors (folate deficiency) and screening (maternal AFP).","question":"A pregnant woman at 16 weeks gestation undergoes a routine ultrasound. The fetus is found to have an absence of a cranial vault and a completely missing brain. The obstetrician explains that this anomaly is not compatible with life and was caused by a failure of the neural tube to close properly. Which of the following specific events failed to occur?","options":{"A":"Closure of the caudal neuropore at day 27","B":"Closure of the cranial neuropore at day 25","C":"Differentiation of the neural crest","D":"Formation of the metanephric blastema","E":"Separation of the urorectal septum"},"correctAnswer":"B","rationale":"Anencephaly is characterized by the absence of a brain and cranial vault. It is a neural tube defect caused by the failure of the cranial (anterior/rostral) neuropore to close, normally occurring around day 25 of gestation.","source":"'Failure of cranial neuropore to close (day 25) A. Anencephaly' and 'Anencephaly is a NTD that results from a failure of the anterior (rostral) portion of the embryonic neural tube (anterior neuropore) to close at the 21st to 26th day of gestation.' (Development of the CNS, PDF Page 15, 48)"},{"section":"Development of the CNS","fullLO":"LO6: Predict the clinical consequences of failure of anterior neural tube closure (anencephaly, encephalocele) versus posterior neural tube closure (spina bifida occulta, meningocele, myelomeningocele), including associated risk factors (folate deficiency) and screening (maternal AFP).","question":"A newborn infant is noted to have a cystic swelling protruding from the lower back. Imaging confirms that the sac contains meninges, cerebrospinal fluid, and displaced spinal cord tissue. The infant exhibits muscle weakness and sensory loss in the lower extremities. Which of the following is the most likely diagnosis?","options":{"A":"Anencephaly","B":"Encephalocele","C":"Meningocele","D":"Meningomyelocele","E":"Spina bifida occulta"},"correctAnswer":"D","rationale":"Meningomyelocele (a type of spina bifida cystica) occurs when the posterior neuropore fails to close. It involves the herniation of both meninges and neural tissue (spinal cord) through a defect in the vertebral column, commonly producing severe motor and sensory deficits. (A meningocele contains meninges and CSF but NO spinal cord tissue).","source":"'Meningomyelocele involves herniation of the spinal cord (or brainstem) and adjoining meninges through a defect in the vertebral column... produces more severe deficits and symptoms may be characteristic of a partial or total transection of the cord' (Development of the CNS, PDF Page 16, 49)"},{"section":"Development of the CNS","fullLO":"LO7: Describe hindbrain malformations such Arnold-Chiari malformation and Dandy-Walker malformations and their clinical significance.","question":"An infant born with a lumbar meningomyelocele undergoes an MRI of the brain and spine. The imaging reveals caudal displacement of both the cerebellum and the brainstem into the foramen magnum, along with an incomplete cerebellar vermis and hydrocephalus. Which of the following is the most likely diagnosis for this hindbrain anomaly?","options":{"A":"Chiari malformation Type I","B":"Chiari malformation Type II","C":"Dandy-Walker malformation","D":"Holoprosencephaly","E":"Syringomyelia"},"correctAnswer":"B","rationale":"Chiari malformation Type II involves the extension of both cerebellar and brainstem tissue into the foramen magnum. It is characteristically present at birth and is strongly associated with myelomeningocele (spina bifida) and hydrocephalus.","source":"'Chiari Malformation (CM)... Type II Extension of both cerebellar and brainstem into the foramen magnum... associated with myelomeningocele (spina bifida).' (Development of the CNS, PDF Page 17, 41)"},{"section":"Development of the CNS","fullLO":"LO7: Describe hindbrain malformations such Arnold-Chiari malformation and Dandy-Walker malformations and their clinical significance.","question":"A 3-month-old boy is evaluated for an unusually enlarging skull and slow motor development. An MRI of the brain reveals complete agenesis of the cerebellar vermis and a massive cystic enlargement of the fourth ventricle. Which of the following is the most likely diagnosis?","options":{"A":"Anencephaly","B":"Chiari malformation Type I","C":"Chiari malformation Type II","D":"Dandy-Walker malformation","E":"Syringomyelia"},"correctAnswer":"D","rationale":"Dandy-Walker malformation is a posterior fossa anomaly characterized by agenesis or hypoplasia of the cerebellar vermis and cystic enlargement of the fourth ventricle. Most patients have hydrocephalus (enlarging skull) at the time of diagnosis.","source":"'Dandy-Walker malformation (DWM) is a posterior fossa anomaly characterized by agenesis or hypoplasia of the cerebellar vermis and cystic enlargement of the fourth ventricle.' (Development of the CNS, PDF Page 19, 43)"},{"section":"Basal Ganglia and Cerebellum: Neuroanatomy, Function, & Blood Supply","fullLO":"LO1: Describe the general role of the cerebellum and basal ganglia in regulating voluntary movements.","question":"A neurophysiology student is reviewing the distinct contributions of extrapyramidal structures to motor control. She notes that while one structure is primarily responsible for the initiation of desired movements and suppression of unwanted activity, another structure focuses on fine-tuning and coordinating motor activity during execution. Neither structure projects directly to lower motor neurons. Which of the following structures is primarily responsible for fine-tuning and coordinating motor activity?","options":{"A":"Basal ganglia","B":"Cerebellum","C":"Motor cortex","D":"Spinal cord","E":"Thalamus"},"correctAnswer":"B","rationale":"The extrapyramidal system regulates movement without projecting directly to lower motor neurons. Within this system, the cerebellum fine-tunes and coordinates motor activity, whereas the basal ganglia initiates and maintains desired movements and suppresses unwanted activity.","source":"'Overview of Higher Motor Function • Basal ganglia – initiation and maintenance of desired movements and suppression of unwanted activity • Cerebellum – fine-tunes and coordinates motor activity' (Basal Ganglia and Cerebellum: Neuroanatomy, Function, & Blood Supply, PDF Page 5)"},{"section":"Basal Ganglia and Cerebellum: Neuroanatomy, Function, & Blood Supply","fullLO":"LO1: Describe the general role of the cerebellum and basal ganglia in regulating voluntary movements.","question":"A 65-year-old man presents with severe difficulty initiating movements (akinesia). His neurologist suspects a dysfunction in the extrapyramidal brain circuits responsible for maintaining desired movements and suppressing unwanted activity. The extrapyramidal structure primarily responsible for this function exerts its influence by modulating other descending systems. Which of the following structures is the primary site of this dysfunction?","options":{"A":"Basal ganglia","B":"Cerebellum","C":"Primary motor cortex","D":"Spinal cord ventral horn","E":"Vestibular nuclei"},"correctAnswer":"A","rationale":"The Basal Ganglia's role is the initiation and maintenance of desired movements and suppression of unwanted activity. Damage here leads to difficulties with movement initiation (as seen in Parkinson's disease).","source":"'Overview of Higher Motor Function • Basal ganglia – initiation and maintenance of desired movements and suppression of unwanted activity' (Basal Ganglia and Cerebellum: Neuroanatomy, Function, & Blood Supply, PDF Page 5)"},{"section":"Basal Ganglia and Cerebellum: Neuroanatomy, Function, & Blood Supply","fullLO":"LO2: Review the gross anatomy and organization of the basal ganglia along with its blood supply.","question":"A radiologist is reviewing a brain MRI of a patient with a suspected basal ganglia hemorrhage. She identifies a collection of blood situated between the external segment of the globus pallidus and the putamen. Collectively, the globus pallidus and the putamen form which of the following anatomical structures?","options":{"A":"Caudate nucleus","B":"Internal capsule","C":"Lentiform nucleus","D":"Nucleus accumbens","E":"Striatum"},"correctAnswer":"C","rationale":"The lentiform nucleus is formed by the putamen and the globus pallidus. (In contrast, the striatum is formed by the caudate nucleus and the putamen).","source":"'Gross Anatomy... Putamen, Globus pallidus (External segment, Internal segment) } Lentiform nucleus' (Basal Ganglia and Cerebellum: Neuroanatomy, Function, & Blood Supply, PDF Page 10, 56)"},{"section":"Basal Ganglia and Cerebellum: Neuroanatomy, Function, & Blood Supply","fullLO":"LO2: Review the gross anatomy and organization of the basal ganglia along with its blood supply.","question":"A 70-year-old man with uncontrolled hypertension suffers a lacunar stroke. Imaging reveals an infarction in the basal ganglia caused by the occlusion of the lenticulostriate arteries. These specific arteries are direct branches of which of the following major vessels?","options":{"A":"Anterior cerebral artery","B":"Basilar artery","C":"Internal carotid artery","D":"Middle cerebral artery","E":"Posterior cerebral artery"},"correctAnswer":"D","rationale":"The lenticulostriate arteries are critical providers of blood to the basal ganglia and are branches of the middle cerebral artery.","source":"'Blood Supply of Basal Ganglia • Lenticulostriate arteries • Branches of middle cerebral artery' (Basal Ganglia and Cerebellum: Neuroanatomy, Function, & Blood Supply, PDF Page 12)"},{"section":"Basal Ganglia and Cerebellum: Neuroanatomy, Function, & Blood Supply","fullLO":"LO3: Name the main neurotransmitter utilized by each of the projection pathways of the basal ganglia.","question":"A researcher is mapping the neural circuits of the basal ganglia. She isolates the primary projection neurons originating from the striatum that send signals directly to the globus pallidus internus (GPi). Which of the following neurotransmitters is synthesized and released by these specific efferent striatal neurons to inhibit their target?","options":{"A":"Acetylcholine","B":"Dopamine","C":"GABA","D":"Glutamate","E":"Serotonin"},"correctAnswer":"C","rationale":"The neurons projecting from the striatum to the globus pallidus (both GPi in the direct pathway and GPe in the indirect pathway) release GABA, which serves an inhibitory (-) function.","source":"'Basal Ganglia Components and Neurotransmitters... [Diagram shows Striatum projecting to GPi/SNr and GPe using GABA (pink arrows)]' (Basal Ganglia and Cerebellum: Neuroanatomy, Function, & Blood Supply, PDF Page 13)"},{"section":"Basal Ganglia and Cerebellum: Neuroanatomy, Function, & Blood Supply","fullLO":"LO3: Name the main neurotransmitter utilized by each of the projection pathways of the basal ganglia.","question":"A patient with Parkinson's disease is evaluated for deep brain stimulation. The target is a specific nucleus that normally receives excitatory input from the motor cortex to initiate the basal ganglia circuitry. The neurons projecting from the motor cortex to the striatum (corticostriatal pathway) primarily utilize which of the following neurotransmitters?","options":{"A":"Acetylcholine","B":"Dopamine","C":"GABA","D":"Glutamate","E":"Norepinephrine"},"correctAnswer":"D","rationale":"The main input source to the basal ganglia (striatum) comes from the motor cortex via the corticostriatal pathway. These projections are glutamatergic (+), serving to excite the striatal neurons.","source":"'Basal Ganglia Components and Neurotransmitters • Main input source = Striatum • Glutamatergic (+) projections from motor cortex' (Basal Ganglia and Cerebellum: Neuroanatomy, Function, & Blood Supply, PDF Page 13)"},{"section":"Basal Ganglia and Cerebellum: Neuroanatomy, Function, & Blood Supply","fullLO":"LO4: Diagram basal ganglia motor pathways (direct, indirect, and nigrostriatal), indicating major afferents and efferents.","question":"A pharmacologist is developing a drug that selectively enhances the direct pathway of the basal ganglia. In a healthy individual, activation of the direct pathway facilitates movement by stimulating the striatum to release GABA, which subsequently inhibits the globus pallidus internus (GPi). This inhibition of the GPi directly leads to which of the following physiological consequences?","options":{"A":"Decreased excitatory input to the striatum","B":"Disinhibition of the thalamus","C":"Increased GABA release from the thalamus","D":"Increased inhibition of the motor cortex","E":"Stimulation of the subthalamic nucleus"},"correctAnswer":"B","rationale":"The GPi normally functions to tonically inhibit the thalamus. When the direct pathway is activated, it inhibits the GPi. Inhibiting an inhibitor leads to \"disinhibition.\" Therefore, inhibiting the GPi disinhibits (activates) the thalamus, allowing it to stimulate the motor cortex and facilitate movement.","source":"'Direct Pathway... A stimulated striatum makes more GABA, which inhibits GPi • An inhibited GPi will make less GABA, and therefore will inhibit the thalamus less • “Disinhibition”' (Basal Ganglia and Cerebellum: Neuroanatomy, Function, & Blood Supply, PDF Page 18-19, 65)"},{"section":"Basal Ganglia and Cerebellum: Neuroanatomy, Function, & Blood Supply","fullLO":"LO4: Diagram basal ganglia motor pathways (direct, indirect, and nigrostriatal), indicating major afferents and efferents.","question":"A patient with a movement disorder is found to have a rare genetic mutation that causes hyperactivation of the subthalamic nucleus (STN). In the normal indirect pathway of the basal ganglia, the STN sends excitatory projections to a specific target to ultimately suppress unwanted movements. Which of the following is the direct target of the excitatory efferents from the STN?","options":{"A":"Globus pallidus externus (GPe)","B":"Globus pallidus internus (GPi)","C":"Motor cortex","D":"Striatum","E":"Thalamus"},"correctAnswer":"B","rationale":"In the indirect pathway, the subthalamic nucleus (STN) sends excitatory (glutamatergic) projections to the globus pallidus internus (GPi). This stimulation of the GPi leads to increased inhibition of the thalamus, thereby suppressing unwanted movements.","source":"'Indirect Pathway... Disinhibition of STN leads to stimulation of the GPi • GPi stimulation leads to increased inhibition of thalamus' (Basal Ganglia and Cerebellum: Neuroanatomy, Function, & Blood Supply, PDF Page 25, 66)"},{"section":"Basal Ganglia and Cerebellum: Neuroanatomy, Function, & Blood Supply","fullLO":"LO5: Explain how basal ganglia pathway models account for hypokinetic and hyperkinetic movement disorders.","question":"A 68-year-old man exhibits resting tremor, bradykinesia, and rigidity. The pathophysiological model of his disease involves a severe loss of dopaminergic neurons in the substantia nigra pars compacta. According to the basal ganglia pathway model, how does this depletion of dopamine lead to his hypokinetic symptoms?","options":{"A":"It causes over-inhibition of the GPi.","B":"It causes under-inhibition of the GPe.","C":"It leads to a weak direct pathway and an overactive indirect pathway.","D":"It leads to a hyperactive direct pathway and a weak indirect pathway.","E":"It stimulates the thalamus directly."},"correctAnswer":"C","rationale":"In Parkinson's disease, the loss of dopamine in the nigrostriatal pathway creates an imbalance. Dopamine normally stimulates the direct pathway (D1) and inhibits the indirect pathway (D2). Without dopamine, the direct pathway (the \"gas pedal\") is weak, and the indirect pathway (the \"brake pedal\") is stuck down, resulting in less movement (hypokinesia).","source":"'Parkinson’s Disease... Imbalance between direct and indirect pathways: Less stimulation of direct pathway (D1)... Less inhibition of indirect pathway (D2)... The gas pedal (direct pathway) is weak, and the brake pedal (indirect pathway) is stuck down…' (Basal Ganglia and Cerebellum: Neuroanatomy, Function, & Blood Supply, PDF Page 38, 67)"},{"section":"Basal Ganglia and Cerebellum: Neuroanatomy, Function, & Blood Supply","fullLO":"LO5: Explain how basal ganglia pathway models account for hypokinetic and hyperkinetic movement disorders.","question":"A 45-year-old woman presents with involuntary, jerky, choreiform movements of her limbs. Genetic testing confirms Huntington's disease. According to the current model of basal ganglia circuitry, the hyperkinetic nature of her movements is primarily caused by which of the following mechanisms?","options":{"A":"Loss of direct pathway neurons causing excessive thalamic inhibition","B":"Loss of dopaminergic input from the substantia nigra","C":"Preferential loss of indirect pathway striatal neurons causing an underactive indirect pathway","D":"Selective destruction of the globus pallidus internus","E":"Stimulation of the subthalamic nucleus by the motor cortex"},"correctAnswer":"C","rationale":"Huntington's disease involves the preferential loss of striatal neurons in the indirect pathway (Striatum -> GPe). This makes the indirect pathway underactive, effectively removing the \"brake\" and leading to an increase in unwanted, involuntary motor activity (hyperkinesia).","source":"'Huntington’s Disease • Preferential loss of indirect pathway striatal neurons (Striatum → GPe)... • Indirect pathway becomes underactive • Jerky, involuntary motor disturbances: Chorea' (Basal Ganglia and Cerebellum: Neuroanatomy, Function, & Blood Supply, PDF Page 36)"},{"section":"Basal Ganglia and Cerebellum: Neuroanatomy, Function, & Blood Supply","fullLO":"LO6: Name and define clinical symptoms of basal ganglia dysfunction including Parkinson’s, Huntington’s, and hemiballism.","question":"A 72-year-old man with a history of hypertension abruptly develops sudden, forceful, flinging movements of his right arm and leg. An MRI confirms an acute ischemic stroke localized to a specific nucleus of the basal ganglia circuitry. Based on his presentation, the stroke most likely damaged which of the following structures?","options":{"A":"Left globus pallidus internus","B":"Left subthalamic nucleus","C":"Right caudate nucleus","D":"Right substantia nigra","E":"Right subthalamic nucleus"},"correctAnswer":"B","rationale":"Hemiballismus presents with sudden, forceful, flinging movements of one side of the body. It is caused by damage to the contralateral subthalamic nucleus (STN), often due to a stroke.","source":"'Hemiballismus • Damage to subthalamic nucleus (STN) • Common causes: stroke, infections, tumors... • Presents with sudden, forceful, flinging movements of one side of the body' (Basal Ganglia and Cerebellum: Neuroanatomy, Function, & Blood Supply, PDF Page 37)"},{"section":"Basal Ganglia and Cerebellum: Neuroanatomy, Function, & Blood Supply","fullLO":"LO6: Name and define clinical symptoms of basal ganglia dysfunction including Parkinson’s, Huntington’s, and hemiballism.","question":"A neurologist evaluates a patient with a neurodegenerative disorder. The patient's spouse reports that the patient frequently exhibits \"jerky, involuntary, dance-like movements\" of their arms and face. Which of the following clinical terms best describes this specific motor symptom?","options":{"A":"Bradykinesia","B":"Chorea","C":"Dysmetria","D":"Intention tremor","E":"Rigidity"},"correctAnswer":"B","rationale":"Chorea is defined as jerky, involuntary motor disturbances, typically presenting as dance-like or restless movements. It is a classic clinical symptom of Huntington's disease.","source":"'Huntington’s Disease... Jerky, involuntary motor disturbances: • Chorea' (Basal Ganglia and Cerebellum: Neuroanatomy, Function, & Blood Supply, PDF Page 36)"},{"section":"Basal Ganglia and Cerebellum: Neuroanatomy, Function, & Blood Supply","fullLO":"LO7: Describe the cytoarchitecture of the cerebellum, structure-function relationship of cerebellar cytoarchitecture, and blood supply to the cerebellum and its deep nuclei.","question":"A histologist is examining a cross-section of the cerebellar cortex. She identifies a specific layer of neurons that represent the only cells whose axons leave the cerebellar cortex to project to the deep cerebellar nuclei. Which of the following layers contains the cell bodies of these essential projection neurons?","options":{"A":"Arbor vitae","B":"Granular layer","C":"Molecular layer","D":"Purkinje cell layer","E":"Vermis"},"correctAnswer":"D","rationale":"The cerebellar cortex has three layers: Molecular, Purkinje, and Granular. The Purkinje cell layer contains Purkinje cells, which are the only neurons whose axons leave the cerebellar cortex (projecting down to the deep nuclei).","source":"'Cytoarchitecture of the Cerebellum... Outer layer of gray matter • Three layers:... 2. Purkinje cell layer • Purkinje cells are the only neurons whose axons leave the cerebellar cortex' (Basal Ganglia and Cerebellum: Neuroanatomy, Function, & Blood Supply, PDF Page 51)"},{"section":"Basal Ganglia and Cerebellum: Neuroanatomy, Function, & Blood Supply","fullLO":"LO7: Describe the cytoarchitecture of the cerebellum, structure-function relationship of cerebellar cytoarchitecture, and blood supply to the cerebellum and its deep nuclei.","question":"A 55-year-old man suffers an ischemic stroke. Imaging reveals an infarction of the deep cerebellar nuclei, the inferior vermis, and the inferior surface of the cerebellar hemispheres. The occluded artery normally arises directly from the vertebral artery. Which of the following arteries is most likely occluded?","options":{"A":"Anterior inferior cerebellar artery","B":"Basilar artery","C":"Posterior cerebral artery","D":"Posterior inferior cerebellar artery","E":"Superior cerebellar artery"},"correctAnswer":"D","rationale":"The posterior inferior cerebellar artery (PICA) originates directly from the vertebral artery and supplies the deep cerebellar nuclei, the inferior vermis, and the inferior surface of the cerebellar hemispheres.","source":"'Cerebellum – Blood Supply... Posterior inferior cerebellar artery • From vertebral artery • Supplies deep cerebellar nuclei, inferior vermis and inferior surface of cerebellar hemispheres' (Basal Ganglia and Cerebellum: Neuroanatomy, Function, & Blood Supply, PDF Page 42, 71)"},{"section":"Basal Ganglia and Cerebellum: Neuroanatomy, Function, & Blood Supply","fullLO":"LO8: Discuss the structure and function of the vestibulocerebellum, spinocerebellum, and cerebrocerebellum; including the major afferent and efferent pathways of the cerebellum and delineation of functional zones and somatotopic organization.","question":"A 30-year-old man sustains a severe head injury that specifically damages the lateral hemispheres of his cerebellum. Subsequent neurological testing reveals marked deficits in motor planning, learning, and timing of his upper limbs. These specific functional impairments indicate damage to which of the following functional subdivisions of the cerebellum?","options":{"A":"Cerebrocerebellum","B":"Flocculonodular lobe","C":"Spinocerebellum","D":"Vermis","E":"Vestibulocerebellum"},"correctAnswer":"A","rationale":"The cerebrocerebellum (which corresponds to the lateral hemisphere) is involved in motor planning and coordination of extremities. The spinocerebellum (vermis and medial hemisphere) controls posture, gait, and ongoing movements. The vestibulocerebellum (flocculonodular lobe) controls balance and eye movements.","source":"'Functional Zones/Subdivisions • Cerebrocerebellum (pontocerebellum)... Cerebellar cortical region: Lateral hemisphere... Function: Motor planning and coordination of extremities, speech' (Basal Ganglia and Cerebellum: Neuroanatomy, Function, & Blood Supply, PDF Page 49, 50)"},{"section":"Basal Ganglia and Cerebellum: Neuroanatomy, Function, & Blood Supply","fullLO":"LO8: Discuss the structure and function of the vestibulocerebellum, spinocerebellum, and cerebrocerebellum; including the major afferent and efferent pathways of the cerebellum and delineation of functional zones and somatotopic organization.","question":"A patient is found to have a tumor compressing the middle cerebellar peduncle on the right side. The neurologist predicts that the patient will have impaired transmission of afferent signals attempting to reach the contralateral lateral cerebellar hemisphere. These specific incoming fibers originate from which of the following structures?","options":{"A":"Deep cerebellar nuclei","B":"Inferior olivary nucleus","C":"Pontine nuclei","D":"Spinal cord","E":"Vestibular nuclei"},"correctAnswer":"C","rationale":"The middle cerebellar peduncle contains exclusively afferent fibers that originate from the pontine nuclei and project to the contralateral lateral cerebellar hemisphere to coordinate and refine movement.","source":"'Middle Cerebellar Peduncle • Contain afferent fibers • Originate from pontine nuclei • Project to contralateral lateral cerebellar hemisphere' (Basal Ganglia and Cerebellum: Neuroanatomy, Function, & Blood Supply, PDF Page 47, 73)"},{"section":"Basal Ganglia and Cerebellum: Neuroanatomy, Function, & Blood Supply","fullLO":"LO9: Name and define clinical symptoms of cerebellar dysfunction, including ataxia, dysmetria, dysdiadochokinesia, nystagmus, and intention tremor.","question":"A 50-year-old woman is asked by her physician to rapidly alternate between pronating and supinating her hands on her thighs. The physician observes that the patient performs these movements in a slow, clumsy, and irregular manner. Which of the following is the correct medical term for this specific clinical sign of cerebellar dysfunction?","options":{"A":"Ataxia","B":"Chorea","C":"Dysdiadochokinesia","D":"Dysmetria","E":"Intention tremor"},"correctAnswer":"C","rationale":"Dysdiadochokinesia is the inability to perform or abnormalities of rapid alternating movements. It is a classic clinical symptom of cerebellar dysfunction.","source":"'Clinical Symptoms of Cerebellar Dysfunction... Dysdiadochokinesia • Abnormalities of rapid alternating movements' (Basal Ganglia and Cerebellum: Neuroanatomy, Function, & Blood Supply, PDF Page 52, 53)"},{"section":"Basal Ganglia and Cerebellum: Neuroanatomy, Function, & Blood Supply","fullLO":"LO9: Name and define clinical symptoms of cerebellar dysfunction, including ataxia, dysmetria, dysdiadochokinesia, nystagmus, and intention tremor.","question":"A patient with multiple sclerosis develops a noticeable tremor only when she reaches for a cup of coffee; the shaking is absent when her arm is at rest. The neurologist attributes this symptom to a cerebellar lesion involving the dentate nucleus projecting to the superior cerebellar peduncle. Which of the following terms best describes this symptom?","options":{"A":"Dysdiadochokinesia","B":"Dysmetria","C":"Intention tremor","D":"Nystagmus","E":"Resting tremor"},"correctAnswer":"C","rationale":"An intention tremor is shaking that occurs specifically during a targeted movement (not at rest). It is commonly associated with cerebellar lesions, particularly those involving the dentate nucleus and the superior cerebellar peduncle.","source":"'Clinical Symptoms of Cerebellar Dysfunction... Intention tremor • Common lesion site = dentate nucleus → superior cerebellar peduncle • Shaking that occurs during movement' (Basal Ganglia and Cerebellum: Neuroanatomy, Function, & Blood Supply, PDF Page 52, 53)"},{"section":"Cerebrovasculature: Neuroanatomy & Neuroradiology","fullLO":"LO1: Identify the major arteries of the anterior circulation (including the internal carotid, anterior cerebral, and middle cerebral arteries, and their key branches) on CT, MRI, and angiographic imaging.","question":"A 60-year-old man presents to the emergency department with sudden onset of right-sided weakness and aphasia. An angiogram of the cerebral circulation is performed. The radiologist observes a complete occlusion of a large artery that is a direct terminal branch of the internal carotid artery, supplying the lateral aspect of the cerebral hemisphere. Which of the following arteries is most likely occluded?","options":{"A":"Anterior cerebral artery","B":"Basilar artery","C":"Middle cerebral artery","D":"Posterior cerebral artery","E":"Vertebral artery"},"correctAnswer":"C","rationale":"The internal carotid artery (ICA) gives off two major terminal branches: the Anterior Cerebral Artery (ACA) and the Middle Cerebral Artery (MCA). The MCA is the major artery of the anterior circulation that sweeps laterally to supply the lateral aspect of the hemisphere. An occlusion here causes classic signs like aphasia and contralateral weakness.","source":"'Anterior Cerebral Circulation • Internal Carotid Artery (ICA) - Anterior Cerebral Artery (ACA) - Middle Cerebral Artery (MCA)' and images mapping the MCA supplying the lateral cerebral cortex. (Cerebrovasculature: Neuroanatomy & Neuroradiology, PDF Page 4, 16, 42-43)"},{"section":"Cerebrovasculature: Neuroanatomy & Neuroradiology","fullLO":"LO1: Identify the major arteries of the anterior circulation (including the internal carotid, anterior cerebral, and middle cerebral arteries, and their key branches) on CT, MRI, and angiographic imaging.","question":"A resident is reviewing a cerebral MR Angiogram (anterior-posterior view) of the anterior circulation. She notes a prominent, paired artery traveling superiorly between the two cerebral hemispheres, deep within the longitudinal fissure. Based on its anatomical course as a terminal branch of the internal carotid, which of the following is the most likely identity of this artery?","options":{"A":"Anterior cerebral artery","B":"Basilar artery","C":"Middle cerebral artery","D":"Posterior communicating artery","E":"Superior cerebellar artery"},"correctAnswer":"A","rationale":"The Anterior Cerebral Artery (ACA) branches from the internal carotid artery and runs medially and superiorly between the cerebral hemispheres (giving off the pericallosal and callosomarginal branches). It is clearly visible on AP angiograms traveling up the midline.","source":"'Anterior Cerebral Circulation... Anterior Cerebral Artery (ACA) o Anterior Communicating Artery (AComA) o Pericallosal Artery o Callosomarginal Artery' and accompanied MRA images showing the ACA traversing the midline. (Cerebrovasculature: Neuroanatomy & Neuroradiology, PDF Page 6, 7, 14, 24)"},{"section":"Cerebrovasculature: Neuroanatomy & Neuroradiology","fullLO":"LO2: Identify the major arteries of the posterior circulation (including the vertebral, basilar, posterior cerebral, and cerebellar arteries, and their key branches) on CT, MRI, and angiographic imaging.","question":"A 70-year-old woman is evaluated for frequent episodes of vertigo, diplopia, and ataxia. An MR Angiogram (MRA) demonstrates severe stenosis of a large, midline vessel resting on the anterior surface of the pons. This vessel is formed by the convergence of the two vertebral arteries. Which of the following arteries is stenosed?","options":{"A":"Anterior cerebral artery","B":"Basilar artery","C":"Internal carotid artery","D":"Middle cerebral artery","E":"Posterior cerebral artery"},"correctAnswer":"B","rationale":"The basilar artery (BA) is the major vessel of the posterior circulation formed by the convergence of the left and right vertebral arteries. It travels along the anterior surface of the brainstem (pons).","source":"'Posterior Cerebral Circulation • Vertebral Artery (VA) - Basilar Artery (BA) - Posterior Cerebral Artery (PCA)' and diagram showing VA converging into BA. (Cerebrovasculature: Neuroanatomy & Neuroradiology, PDF Page 4, 10, 17, 28)"},{"section":"Cerebrovasculature: Neuroanatomy & Neuroradiology","fullLO":"LO2: Identify the major arteries of the posterior circulation (including the vertebral, basilar, posterior cerebral, and cerebellar arteries, and their key branches) on CT, MRI, and angiographic imaging.","question":"A neuroradiologist reviewing an angiogram of the posterior circulation identifies a characteristic \"Y-shaped\" bifurcation at the superior end of the basilar artery. The two arteries emerging from this bifurcation supply the inferior aspect of the temporal lobes and the occipital lobes. Which of the following arteries are these?","options":{"A":"Anterior cerebral arteries","B":"Anterior inferior cerebellar arteries","C":"Posterior cerebral arteries","D":"Posterior inferior cerebellar arteries","E":"Superior cerebellar arteries"},"correctAnswer":"C","rationale":"The basilar artery ascends the brainstem and terminates by bifurcating into the left and right Posterior Cerebral Arteries (PCA), completing the major posterior circulation framework.","source":"'posterior circulation [Diagram showing Basilar artery bifurcating into PCA and PCA]' (Cerebrovasculature: Neuroanatomy & Neuroradiology, PDF Page 10, 17, 29, 32)"},{"section":"Cerebrovasculature: Neuroanatomy & Neuroradiology","fullLO":"LO3: Identify the dural venous sinuses and major cerebral veins (including the superior sagittal, straight, transverse, and sigmoid sinuses, and the cavernous sinus) on clinical imaging.","question":"A 30-year-old pregnant woman presents with severe headaches and vision changes. An MR Venogram reveals a massive thrombosis within a large, midline venous channel located in the superior attached margin of the falx cerebri. On a lateral view of the venogram, this structure traces the superior curve of the calvaria. Which of the following structures is occluded?","options":{"A":"Cavernous sinus","B":"Inferior sagittal sinus","C":"Straight sinus","D":"Superior sagittal sinus","E":"Transverse sinus"},"correctAnswer":"D","rationale":"The Superior Sagittal Sinus is a large dural venous sinus running along the superior margin of the falx cerebri. On a lateral venogram, it is clearly visible sweeping over the superior curve of the brain (calvaria) from anterior to posterior.","source":"'Dural Venous Sinuses [Image highlighting the Superior sagittal sinus sweeping over the top of the brain in blue]' (Cerebrovasculature: Neuroanatomy & Neuroradiology, PDF Page 35, 37, 38)"},{"section":"Cerebrovasculature: Neuroanatomy & Neuroradiology","fullLO":"LO3: Identify the dural venous sinuses and major cerebral veins (including the superior sagittal, straight, transverse, and sigmoid sinuses, and the cavernous sinus) on clinical imaging.","question":"A patient undergoes cerebral venography to evaluate a potential venous malformation. The radiologist traces the flow of contrast from the superior sagittal sinus to the confluence of sinuses. From there, the contrast flows laterally away from the midline along the attached margin of the tentorium cerebelli. Which of the following dural venous sinuses is the contrast entering immediately after leaving the confluence of sinuses?","options":{"A":"Cavernous sinus","B":"Inferior sagittal sinus","C":"Sigmoid sinus","D":"Straight sinus","E":"Transverse sinus"},"correctAnswer":"E","rationale":"Venous blood from the superior sagittal sinus meets at the confluence of sinuses (torcular Herophili). From the confluence, the blood flows laterally away from the midline into the right and left Transverse sinuses.","source":"'Dural Venous Sinuses [Image highlighting the Transverse sinus in pink emerging laterally from the confluence of sinuses]' (Cerebrovasculature: Neuroanatomy & Neuroradiology, PDF Page 37, 38)"}];
+
+/* Quiz-local storage keys (namespaced so they don't clash with the
+   shared bb_ keys). Shared theme/bg keys are read below so the look
+   carries over from the directory. */
+const K = {
+    mode:      'q_' + QUIZ_ID + '_mode',
+    showLO:    'q_' + QUIZ_ID + '_showLO',
+    answers:   'q_' + QUIZ_ID + '_answers',
+    flags:     'q_' + QUIZ_ID + '_flags',
+    submitted: 'q_' + QUIZ_ID + '_submitted',
+    strikes:   'q_' + QUIZ_ID + '_strikes',
+    hl:        'q_' + QUIZ_ID + '_hl',
+    gradeTrack:'q_' + QUIZ_ID + '_gradeTrack',   // tutor live score tracker on/off
+    snapshot:  'q_' + QUIZ_ID + '_snapshot',     // last exam grade (keeps the report visible)
+    retrySet:  'q_' + QUIZ_ID + '_retrySet'      // indices being retried (for the retry-results element)
+};
+
+const root = document.documentElement;
+let mode = localStorage.getItem(K.mode) || 'tutor';      // 'tutor' | 'exam'
+let answers = load(K.answers, {});     // { qIndex: 'A' }
+let flags = load(K.flags, {});         // { qIndex: true }
+let submitted = load(K.submitted, {}); // tutor: { qIndex: true }; exam: {all:true} once graded
+let graded = !!submitted.all;          // exam mode graded state
+let strikes = load(K.strikes, {});     // { qIndex: { 'A': true } }  eliminated options
+let highlights = load(K.hl, {});       // { qIndex: "<stem html with <mark>>" }
+let gradeTrack = localStorage.getItem(K.gradeTrack) === 'true';  // tutor live score tracker (default OFF)
+let gradedSnapshot = load(K.snapshot, null);   // last exam score; keeps the results card visible until reset
+let retrySet = load(K.retrySet, []);           // question indices from the active "Retry incorrect" pass
+let autoSubmit = localStorage.getItem('bb_autoSubmit') === 'true';  // SHARED across all quizzes (like theme): reveal as soon as a choice is picked
+
+function load(key, fallback) { try { return JSON.parse(localStorage.getItem(key)) || fallback; } catch (e) { return fallback; } }
+function save(key, val) { try { localStorage.setItem(key, JSON.stringify(val)); } catch (e) {} }
+
+/* Ordered unique sections + a short label for each */
+const sections = [];
+quizData.forEach(q => { if (!sections.includes(q.section)) sections.push(q.section); });
+function shortLabel(name) {
+    const map = {"Development of the CNS":"CNS Development","Basal Ganglia and Cerebellum: Neuroanatomy, Function, & Blood Supply":"Basal Ganglia & Cerebellum","Cerebrovasculature: Neuroanatomy & Neuroradiology":"Cerebrovasculature"};
+    return map[name] || name;
+}
+
+/* ============================================================
+   RENDER — question cards grouped by section
+============================================================ */
+function renderQuiz() {
+    const rootEl = document.getElementById('quiz-root');
+    rootEl.innerHTML = '';
+    let lastSection = null;
+    let secNum = 0;
+
+    quizData.forEach((item, index) => {
+        if (item.section !== lastSection) {
+            secNum++;
+            lastSection = item.section;
+            const div = document.createElement('div');
+            div.className = 'section-divider';
+            div.innerHTML = `<span class="sd-chip">Section ${secNum}</span><span class="sd-name">${escapeHtml(item.section)}</span><span class="sd-rule"></span>`;
+            rootEl.appendChild(div);
+        }
+
+        const card = document.createElement('div');
+        card.className = 'question-card';
+        card.id = 'q-card-' + index;
+        if (flags[index]) card.classList.add('flagged');
+
+        // top row: index + flag
+        const top = document.createElement('div');
+        top.className = 'q-top';
+        top.innerHTML = `<span class="q-index">Q${index + 1}</span><span class="q-spacer"></span>`;
+        const flagBtn = document.createElement('button');
+        flagBtn.className = 'flag-btn';
+        flagBtn.innerHTML = `⚑ <span class="flag-txt">${flags[index] ? 'Flagged' : 'Flag'}</span>`;
+        flagBtn.onclick = () => toggleFlag(index);
+        top.appendChild(flagBtn);
+        card.appendChild(top);
+
+        // LO box
+        const lo = document.createElement('div');
+        lo.className = 'lo-box';
+        lo.innerHTML = `<span class="lo-tag">Learning Objective</span>${escapeHtml(item.fullLO)}`;
+        card.appendChild(lo);
+
+        // question text (restore any saved highlights)
+        const qt = document.createElement('div');
+        qt.className = 'question-text';
+        qt.dataset.qi = index;
+        qt.innerHTML = highlights[index] || `${escapeHtml(item.question)}`;
+        card.appendChild(qt);
+
+        // options
+        const grid = document.createElement('div');
+        grid.className = 'options-grid';
+        for (const [key, value] of Object.entries(item.options)) {
+            const label = document.createElement('label');
+            label.className = 'option-label';
+            label.dataset.key = key;
+            if (answers[index] === key) label.classList.add('selected');
+            if (strikes[index] && strikes[index][key]) label.classList.add('eliminated');
+            label.innerHTML = `<span class="opt-key">${key}</span><span class="opt-text">${escapeHtml(value)}</span>`;
+            label.onclick = () => selectOption(index, key);
+            // right-click (desktop) / press-and-hold (touch) to eliminate (strike through)
+            attachLongPress(label, () => toggleStrike(index, key));
+            grid.appendChild(label);
+        }
+        card.appendChild(grid);
+
+        // tutor submit button
+        const submitBtn = document.createElement('button');
+        submitBtn.className = 'q-submit';
+        submitBtn.id = 'submit-' + index;
+        submitBtn.textContent = 'Submit answer';
+        submitBtn.onclick = () => submitOne(index);
+        card.appendChild(submitBtn);
+
+        // feedback
+        const fb = document.createElement('div');
+        fb.className = 'feedback';
+        fb.id = 'feedback-' + index;
+        card.appendChild(fb);
+
+        rootEl.appendChild(card);
+    });
+
+    buildNavigator();
+    applyModeUI();
+    // restore any already-revealed feedback (tutor) or graded review (exam)
+    quizData.forEach((_, i) => { if (isRevealed(i)) revealAnswer(i); });
+    updateProgress();
+}
+
+
+/* ===== ANIMATED BACKGROUND ENGINE (shared w/ directory, throttled) ===== */
+/* ============================================================
+   ANIMATED BACKGROUND ENGINE — multiple styles
+   window.bgFx.start() / .stop() / .setStyle(name)
+   Styles: neural (default), starfield, bubbles, grid, waves
+============================================================ */
+(function () {
+    const canvas = document.getElementById('neural-bg');
+    const ctx = canvas.getContext('2d');
+    let W, H, rafId = null, running = false, style = 'neural';
+    let nodes = [], orbs = [], stars = [], shooting = null, t = 0;
+    const getRGB = () => getComputedStyle(document.documentElement).getPropertyValue('--neural-rgb').trim() || '110,168,254';
+
+    function resize() {
+        W = canvas.width = window.innerWidth;
+        H = canvas.height = window.innerHeight;
+        seed();
+    }
+    function seed() {
+        // particles for neural network
+        nodes = Array.from({ length: 60 }, () => ({
+            x: Math.random() * W, y: Math.random() * H,
+            vx: (Math.random() - 0.5) * 0.22, vy: (Math.random() - 0.5) * 0.22,
+            r: 1.1 + Math.random() * 1.8, pulse: Math.random() * Math.PI * 2
+        }));
+        // orbs for bubbles
+        orbs = Array.from({ length: 16 }, () => ({
+            x: Math.random() * W, y: Math.random() * H,
+            r: 30 + Math.random() * 90,
+            vx: (Math.random() - 0.5) * 0.25, vy: (Math.random() - 0.5) * 0.25,
+            a: 0.04 + Math.random() * 0.06
+        }));
+        // stars for starfield (slow drift + independent twinkle)
+        const density = Math.round((W * H) / 9000);
+        stars = Array.from({ length: Math.min(220, Math.max(90, density)) }, () => ({
+            x: Math.random() * W, y: Math.random() * H,
+            r: 0.5 + Math.random() * 1.4,
+            tw: Math.random() * Math.PI * 2,         // twinkle phase
+            ts: 0.5 + Math.random() * 1.5,           // twinkle speed
+            drift: 0.04 + Math.random() * 0.12       // downward drift
+        }));
+        shooting = null;
+    }
+
+    function drawNeural() {
+        const rgb = getRGB(), MAX = 150;
+        nodes.forEach(n => {
+            n.x += n.vx * 2; n.y += n.vy * 2; n.pulse += 0.032;
+            if (n.x < -8) n.x = W + 8; if (n.x > W + 8) n.x = -8;
+            if (n.y < -8) n.y = H + 8; if (n.y > H + 8) n.y = -8;
+        });
+        for (let i = 0; i < nodes.length; i++) {
+            for (let j = i + 1; j < nodes.length; j++) {
+                const dx = nodes[i].x - nodes[j].x, dy = nodes[i].y - nodes[j].y;
+                const d = Math.hypot(dx, dy);
+                if (d < MAX) {
+                    ctx.beginPath();
+                    ctx.moveTo(nodes[i].x, nodes[i].y);
+                    ctx.lineTo(nodes[j].x, nodes[j].y);
+                    ctx.strokeStyle = `rgba(${rgb},${(0.1 * (1 - d / MAX)).toFixed(3)})`;
+                    ctx.lineWidth = 0.7; ctx.stroke();
+                }
+            }
+        }
+        nodes.forEach(n => {
+            const r = n.r + Math.sin(n.pulse) * 0.4;
+            ctx.beginPath(); ctx.arc(n.x, n.y, r, 0, Math.PI * 2);
+            ctx.fillStyle = `rgba(${rgb},${(0.26 + Math.sin(n.pulse) * 0.1).toFixed(3)})`;
+            ctx.fill();
+        });
+    }
+
+    function drawStarfield() {
+        const rgb = getRGB();
+        stars.forEach(s => {
+            s.tw += 0.06 * s.ts;
+            s.y += s.drift * 2;
+            if (s.y > H + 2) { s.y = -2; s.x = Math.random() * W; }
+            const a = 0.25 + 0.55 * (0.5 + 0.5 * Math.sin(s.tw));
+            ctx.beginPath(); ctx.arc(s.x, s.y, s.r, 0, Math.PI * 2);
+            ctx.fillStyle = `rgba(${rgb},${a.toFixed(3)})`;
+            ctx.fill();
+        });
+        // occasional shooting star
+        if (!shooting && Math.random() < 0.004) {
+            shooting = {
+                x: Math.random() * W * 0.6, y: Math.random() * H * 0.4,
+                vx: 6 + Math.random() * 4, vy: 3 + Math.random() * 2, life: 1
+            };
+        }
+        if (shooting) {
+            shooting.x += shooting.vx; shooting.y += shooting.vy; shooting.life -= 0.012;
+            const tailX = shooting.x - shooting.vx * 6, tailY = shooting.y - shooting.vy * 6;
+            const grad = ctx.createLinearGradient(shooting.x, shooting.y, tailX, tailY);
+            grad.addColorStop(0, `rgba(${rgb},${Math.max(0, shooting.life * 0.9).toFixed(3)})`);
+            grad.addColorStop(1, `rgba(${rgb},0)`);
+            ctx.strokeStyle = grad; ctx.lineWidth = 1.6;
+            ctx.beginPath(); ctx.moveTo(shooting.x, shooting.y); ctx.lineTo(tailX, tailY); ctx.stroke();
+            if (shooting.life <= 0 || shooting.x > W + 40 || shooting.y > H + 40) shooting = null;
+        }
+    }
+
+    function drawBubbles() {
+        const rgb = getRGB();
+        orbs.forEach(o => {
+            o.x += o.vx * 2; o.y += o.vy * 2;
+            if (o.x < -o.r) o.x = W + o.r; if (o.x > W + o.r) o.x = -o.r;
+            if (o.y < -o.r) o.y = H + o.r; if (o.y > H + o.r) o.y = -o.r;
+            const g = ctx.createRadialGradient(o.x, o.y, 0, o.x, o.y, o.r);
+            g.addColorStop(0, `rgba(${rgb},${o.a})`);
+            g.addColorStop(1, `rgba(${rgb},0)`);
+            ctx.fillStyle = g;
+            ctx.beginPath(); ctx.arc(o.x, o.y, o.r, 0, Math.PI * 2); ctx.fill();
+        });
+    }
+
+    function drawGrid() {
+        const rgb = getRGB(), gap = 46;
+        ctx.lineWidth = 1;
+        for (let x = 0; x <= W; x += gap) {
+            for (let y = 0; y <= H; y += gap) {
+                const a = 0.05 + 0.05 * Math.sin(t * 0.6 + (x + y) * 0.01);
+                ctx.fillStyle = `rgba(${rgb},${Math.max(0, a).toFixed(3)})`;
+                ctx.beginPath(); ctx.arc(x, y, 1.4, 0, Math.PI * 2); ctx.fill();
+            }
+        }
+    }
+
+    function drawWaves() {
+        const rgb = getRGB();
+        for (let k = 0; k < 3; k++) {
+            ctx.beginPath();
+            const amp = 26 + k * 10, yBase = H * (0.4 + k * 0.18), speed = t * (0.4 + k * 0.15);
+            for (let x = 0; x <= W; x += 12) {
+                const y = yBase + Math.sin(x * 0.008 + speed) * amp + Math.sin(x * 0.02 + speed * 1.4) * (amp * 0.4);
+                x === 0 ? ctx.moveTo(x, y) : ctx.lineTo(x, y);
+            }
+            ctx.strokeStyle = `rgba(${rgb},${(0.10 - k * 0.025).toFixed(3)})`;
+            ctx.lineWidth = 1.4; ctx.stroke();
+        }
+    }
+
+    /* Throttled render: cap to ~30fps and skip work when the tab is hidden.
+       Visually identical to 60fps for these slow motions, but roughly halves
+       GPU/CPU work so laptop fans don't spin up. Per-frame motion is doubled
+       (see drawNeural/starfield/bubbles and t) to keep the speed the same. */
+    const FRAME_MS = 1000 / 30;
+    let lastFrame = 0;
+    function draw(now) {
+        if (!running) return;
+        rafId = requestAnimationFrame(draw);
+        if (document.hidden) return;
+        if (now - lastFrame < FRAME_MS) return;
+        lastFrame = now;
+        ctx.clearRect(0, 0, W, H);
+        t += 0.032;
+        if (style === 'neural') drawNeural();
+        else if (style === 'starfield') drawStarfield();
+        else if (style === 'bubbles') drawBubbles();
+        else if (style === 'grid') drawGrid();
+        else if (style === 'waves') drawWaves();
+    }
+    function start() {
+        if (running) return;
+        resize();
+        running = true;
+        lastFrame = 0;
+        canvas.style.display = '';
+        rafId = requestAnimationFrame(draw);
+    }
+    function stop() {
+        running = false;
+        if (rafId) cancelAnimationFrame(rafId);
+        ctx && ctx.clearRect(0, 0, W || 0, H || 0);
+        canvas.style.display = 'none';
+    }
+    function setStyle(name) {
+        style = name;
+        seed();
+    }
+    window.addEventListener('resize', () => { if (running) resize(); });
+    document.addEventListener('visibilitychange', () => { if (running && !document.hidden) lastFrame = 0; });
+    window.bgFx = { start, stop, setStyle };
+})();
+
+
+/* ============================================================
+   NAVIGATOR (USMLE-style)
+============================================================ */
+function buildNavigator() {
+    const wrap = document.getElementById('nav-sections');
+    wrap.innerHTML = '';
+    let lastSection = null, secNum = 0;
+    quizData.forEach((item, index) => {
+        if (item.section !== lastSection) {
+            secNum++;
+            lastSection = item.section;
+            const sec = document.createElement('div');
+            sec.className = 'nav-section';
+            sec.innerHTML = `<div class="nav-section-label"><span class="sec-num">${secNum}</span>${escapeHtml(shortLabel(item.section))}</div><div class="nav-grid" id="nav-grid-${secNum}"></div>`;
+            wrap.appendChild(sec);
+        }
+        const cell = document.createElement('button');
+        cell.className = 'nav-cell';
+        cell.id = 'nav-cell-' + index;
+        cell.textContent = index + 1;
+        cell.innerHTML += '<span class="flag-dot"></span>';
+        cell.onclick = () => jumpToQuestion(index);
+        document.getElementById('nav-grid-' + secNum).appendChild(cell);
+        updateNavCell(index);
+    });
+    document.getElementById('total-count').textContent = quizData.length;
+    document.getElementById('meta-q').textContent = quizData.length;
+    document.getElementById('meta-sec').textContent = sections.length;
+}
+
+function updateNavCell(index) {
+    const cell = document.getElementById('nav-cell-' + index);
+    if (!cell) return;
+    cell.classList.toggle('answered', answers[index] != null && !isRevealed(index));
+    cell.classList.toggle('flagged', !!flags[index]);
+    cell.classList.remove('correct', 'incorrect', 'current');
+    if (isRevealed(index) && answers[index] != null) {
+        const correct = answers[index] === quizData[index].correctAnswer;
+        cell.classList.add(correct ? 'correct' : 'incorrect');
+    }
+}
+
+let spyLockUntil = 0;
+function jumpToQuestion(index) {
+    currentQuestion = index;
+    const card = document.getElementById('q-card-' + index);
+    document.querySelectorAll('.nav-cell.current').forEach(c => c.classList.remove('current'));
+    document.getElementById('nav-cell-' + index).classList.add('current');
+    spyLockUntil = Date.now() + 700;   // let the smooth-scroll settle before spy resumes
+    card.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    if (window.innerWidth <= 820) document.getElementById('sidebar').classList.add('collapsed');
+}
+
+/* Indices of the questions actually on screen. During a "Retry incorrect" pass
+   the other cards are display:none; navigation + the scroll spy must skip them
+   (a hidden card reports top:0 and would otherwise hijack the current index). */
+function visibleQuestions() {
+    const vis = [];
+    quizData.forEach((_, i) => {
+        const c = document.getElementById('q-card-' + i);
+        if (c && c.offsetParent !== null) vis.push(i);
+    });
+    return vis;
+}
+
+/* ============================================================
+   ANSWER SELECTION + FLAGGING
+============================================================ */
+function selectOption(index, key) {
+    // Exam mode locks after grading; tutor mode always allows changing the answer.
+    if (mode === 'exam' && graded) return;
+    answers[index] = key;
+    save(K.answers, answers);
+    const card = document.getElementById('q-card-' + index);
+    card.querySelectorAll('.option-label').forEach(l => l.classList.toggle('selected', l.dataset.key === key));
+    // If this question was already submitted in tutor mode, re-grade instantly.
+    if (mode === 'tutor' && submitted[index]) {
+        revealAnswer(index);
+    } else if (mode === 'tutor' && autoSubmit && !submitted[index]) {
+        submitOne(index);   // auto-submit: reveal feedback immediately on selection
+        return;             // submitOne already refreshes the nav cell, progress and tracker
+    }
+    updateNavCell(index);
+    updateProgress();
+    updateTutorTracker();
+}
+
+function toggleFlag(index) {
+    flags[index] = !flags[index];
+    if (!flags[index]) delete flags[index];
+    save(K.flags, flags);
+    const card = document.getElementById('q-card-' + index);
+    card.classList.toggle('flagged', !!flags[index]);
+    const txt = card.querySelector('.flag-txt');
+    if (txt) txt.textContent = flags[index] ? 'Flagged' : 'Flag';
+    updateNavCell(index);
+    updateProgress();
+}
+
+function toggleAutoSubmit(force) {
+    autoSubmit = (typeof force === 'boolean') ? force : !autoSubmit;
+    localStorage.setItem('bb_autoSubmit', autoSubmit ? 'true' : 'false');
+    const btn = document.getElementById('autosubmit-btn');
+    if (btn) btn.setAttribute('aria-checked', autoSubmit ? 'true' : 'false');
+}
+
+/* ============================================================
+   REVEAL / FEEDBACK
+============================================================ */
+function isRevealed(index) {
+    return mode === 'tutor' ? !!submitted[index] : graded;
+}
+
+function submitOne(index) {
+    if (answers[index] == null) { flashSubmit(index); return; }
+    submitted[index] = true;
+    save(K.submitted, submitted);
+    revealAnswer(index);
+    updateNavCell(index);
+    updateProgress();
+    updateTutorTracker();
+}
+
+function flashSubmit(index) {
+    const btn = document.getElementById('submit-' + index);
+    if (!btn) return;
+    const orig = btn.textContent;
+    btn.textContent = 'Select an answer first';
+    setTimeout(() => { btn.textContent = orig; }, 1400);
+}
+
+function revealAnswer(index) {
+    const data = quizData[index];
+    const card = document.getElementById('q-card-' + index);
+    const chosen = answers[index];
+    const correct = chosen === data.correctAnswer;
+    const lockOptions = (mode === 'exam');  // tutor mode stays re-answerable
+
+    card.querySelectorAll('.option-label').forEach(l => {
+        // clear any previous reveal state first (so re-grading is clean)
+        l.classList.remove('answer-correct', 'answer-wrong', 'locked');
+        const oldMark = l.querySelector('.opt-mark'); if (oldMark) oldMark.remove();
+        if (lockOptions) l.classList.add('locked');
+        l.classList.toggle('selected', l.dataset.key === chosen);
+        const k = l.dataset.key;
+        if (k === data.correctAnswer) { l.classList.add('answer-correct'); l.insertAdjacentHTML('beforeend', '<span class="opt-mark">✓</span>'); }
+        else if (k === chosen) { l.classList.add('answer-wrong'); l.insertAdjacentHTML('beforeend', '<span class="opt-mark">✗</span>'); }
+    });
+
+    const submitBtn = document.getElementById('submit-' + index);
+    if (submitBtn) submitBtn.classList.add('hidden');
+
+    const fb = document.getElementById('feedback-' + index);
+    fb.className = 'feedback show ' + (correct ? 'correct' : 'incorrect');
+    let header = correct ? '✓ Correct' : '✗ Incorrect';
+    let body = '';
+    if (!correct) body += `<div class="fb-line">Correct answer: <strong>${data.correctAnswer}</strong></div>`;
+    body += `<div class="rationale"><strong>Rationale:</strong> ${escapeHtml(data.rationale)}</div>`;
+    body += `<div class="source"><strong>Source:</strong> ${escapeHtml(data.source)}</div>`;
+    fb.innerHTML = `<div class="feedback-header">${header}</div><div class="feedback-body">${body}</div>`;
+}
+
+
+/* ============================================================
+   MODE (tutor / exam)
+============================================================ */
+function syncModeButtons() {
+    document.getElementById('mode-tutor').classList.toggle('active', mode === 'tutor');
+    document.getElementById('mode-exam').classList.toggle('active', mode === 'exam');
+    document.body.classList.toggle('mode-tutor', mode === 'tutor');
+}
+function setMode(newMode) {
+    if (mode === newMode) return;
+    // Prevent switching away from a graded exam without warning
+    mode = newMode;
+    localStorage.setItem(K.mode, mode);
+    syncModeButtons();
+    // re-render reveal state (tutor shows per-submitted; exam shows only if graded)
+    quizData.forEach((_, i) => {
+        const fb = document.getElementById('feedback-' + i);
+        const card = document.getElementById('q-card-' + i);
+        if (isRevealed(i)) { revealAnswer(i); }
+        else {
+            fb.className = 'feedback'; fb.innerHTML = '';
+            card.querySelectorAll('.option-label').forEach(l => { l.classList.remove('locked','answer-correct','answer-wrong'); const m = l.querySelector('.opt-mark'); if (m) m.remove(); });
+        }
+        updateNavCell(i);
+    });
+    applyModeUI();   // sets submit-button + end-block visibility for the new mode
+    applyGradeTrackUI();
+    updateTutorTracker();
+    refreshResults();   // show the exam report only in exam mode
+    updateProgress();
+}
+
+function applyModeUI() {
+    const isTutor = mode === 'tutor';
+    document.getElementById('meta-mode').textContent = isTutor ? 'Tutor' : 'Exam';
+    const asBtn = document.getElementById('autosubmit-btn');
+    if (asBtn) asBtn.classList.toggle('hidden', !isTutor);
+    // The info banner (#mode-hint) is a static announcement set in the HTML; it is
+    // not changed by the mode here.
+    // per-question submit buttons only in tutor mode (and not after reveal)
+    quizData.forEach((_, i) => {
+        const sb = document.getElementById('submit-' + i);
+        if (!sb) return;
+        if (isTutor && !isRevealed(i)) sb.classList.remove('hidden');
+        else sb.classList.add('hidden');
+    });
+    // end-of-quiz submit block only in exam mode, before grading
+    const endBlock = document.getElementById('quiz-end');
+    endBlock.classList.toggle('hidden', isTutor || graded);
+    const endBlockTutor = document.getElementById('quiz-end-tutor');
+    if (endBlockTutor) endBlockTutor.classList.toggle('hidden', !isTutor);
+    // legend graded rows
+    document.querySelectorAll('.legend-graded').forEach(el => el.style.display = (mode === 'exam' && !graded) ? 'none' : '');
+}
+
+/* ============================================================
+   FINISH & GRADE (exam mode)  → writes shared bb_scores + bb_completed
+============================================================ */
+function finishQuiz() {
+    const unanswered = quizData.filter((_, i) => answers[i] == null).length;
+    if (unanswered > 0) {
+        const proceed = confirm(`You have ${unanswered} unanswered question${unanswered > 1 ? 's' : ''}. Grade anyway? They'll be marked incorrect.`);
+        if (!proceed) return;
+    }
+    graded = true;
+    submitted = { all: true };
+    save(K.submitted, submitted);
+    quizData.forEach((_, i) => { revealAnswer(i); updateNavCell(i); });
+    applyModeUI();
+    writeScore();
+    showResults();
+    updateProgress();
+}
+
+function computeScore() {
+    let correct = 0;
+    const perSection = {};
+    sections.forEach(s => perSection[s] = { correct: 0, total: 0 });
+    quizData.forEach((q, i) => {
+        perSection[q.section].total++;
+        if (answers[i] === q.correctAnswer) { correct++; perSection[q.section].correct++; }
+    });
+    return { correct, total: quizData.length, perSection };
+}
+
+/* Write to the SHARED keys the B&B directory reads. */
+function writeScore() {
+    const { correct, total } = computeScore();
+    try {
+        const scores = JSON.parse(localStorage.getItem('bb_scores') || '{}');
+        scores[QUIZ_ID] = { correct, total, ts: Date.now() };
+        localStorage.setItem('bb_scores', JSON.stringify(scores));
+        const completed = JSON.parse(localStorage.getItem('bb_completed') || '{}');
+        completed[QUIZ_ID] = true;
+        localStorage.setItem('bb_completed', JSON.stringify(completed));
+    } catch (e) {}
+}
+
+/* Build + show the results card from a saved snapshot (no scroll). */
+function renderResults(snap) {
+    if (!snap) return;
+    const { correct, total, perSection } = snap;
+    const incorrect = total - correct;
+    const pct = total ? Math.round((correct / total) * 100) : 0;
+    const card = document.getElementById('results-card');
+    let secRows = sections.map(s => {
+        const ps = perSection[s];
+        if (!ps) return '';
+        const p = ps.total ? Math.round((ps.correct / ps.total) * 100) : 0;
+        return `<div class="sec-score-row"><span class="sec-score-name">${escapeHtml(shortLabel(s))}</span><span class="sec-score-bar"><span style="width:${p}%"></span></span><span class="sec-score-val">${ps.correct}/${ps.total}</span></div>`;
+    }).join('');
+    // Retry-results element: how the previously-missed questions went this time.
+    let retryBlock = '';
+    if (snap.retry && snap.retry.total) {
+        const r = snap.retry;
+        const rpct = r.total ? Math.round((r.correct / r.total) * 100) : 0;
+        const chips = r.items.map(it =>
+            `<button type="button" class="retry-chip ${it.correct ? 'ok' : 'no'}" onclick="jumpToQuestion(${it.n - 1})" title="Go to question ${it.n}">Q${it.n} ${it.correct ? '✓' : '✗'}</button>`
+        ).join('');
+        retryBlock = `
+        <div class="retry-results">
+            <div class="retry-results-head">
+                <span class="rr-title">↻ Retry results</span>
+                <span class="rr-score"><b>${r.correct} / ${r.total}</b> of your previously-missed questions correct this time · ${rpct}%</span>
+            </div>
+            <div class="retry-chips">${chips}</div>
+        </div>`;
+    }
+    card.innerHTML = `
+        <div class="results-top">
+            <div class="score-ring" style="--pct:${pct}"><div class="score-ring-inner"><div class="sr-pct">${pct}%</div><div class="sr-lbl">Score</div></div></div>
+            <div class="results-headline">
+                <h2>${correct} / ${total} correct</h2>
+                <div class="results-tally">
+                    <span class="tally correct-tally">✓ ${correct} correct</span>
+                    <span class="tally incorrect-tally">✗ ${incorrect} incorrect</span>
+                </div>
+                <p class="results-saved">Score saved to the directory.</p>
+            </div>
+        </div>
+        <div class="section-scores">${secRows}</div>
+        ${retryBlock}
+        <div class="results-actions">
+            <button class="results-btn primary" onclick="reviewAll()">Review explanations</button>
+            <button class="results-btn" onclick="retryIncorrect()">Retry incorrect</button>
+            <button class="results-btn danger-outline" onclick="resetQuizClick(this)">Reset quiz</button>
+            <a class="results-btn" href="https://ibecerramcg.github.io/BnB-Practice-Quizzes/">Back to directory</a>
+        </div>`;
+    card.classList.add('show');
+}
+
+/* Grade the current answers, remember the snapshot, and show the card.
+   The answers are stored on the snapshot too, so "Review explanations" can
+   restore the fully-graded view even after a Retry incorrect wiped them. */
+function showResults() {
+    gradedSnapshot = computeScore();
+    gradedSnapshot.answers = { ...answers };
+    // If this grade followed a "Retry incorrect" pass, score just those questions
+    // separately so the retry performance is clear (not merged into the overall).
+    if (retrySet && retrySet.length) {
+        const items = retrySet.slice().sort((a, b) => a - b)
+            .map(i => ({ n: i + 1, correct: answers[i] === quizData[i].correctAnswer }));
+        gradedSnapshot.retry = { total: items.length, correct: items.filter(x => x.correct).length, items };
+        retrySet = [];            // this retry pass is now consumed
+        save(K.retrySet, retrySet);
+    }
+    save(K.snapshot, gradedSnapshot);
+    renderResults(gradedSnapshot);
+    document.getElementById('results-card').scrollIntoView({ behavior: 'smooth', block: 'start' });
+}
+
+/* Show / hide the results card from the saved snapshot. The snapshot survives
+   reloads and the "Retry incorrect → Show all questions" cycle, so the report
+   only disappears when Reset quiz is used. */
+function refreshResults() {
+    const card = document.getElementById('results-card');
+    if (mode === 'exam' && gradedSnapshot && !retryMode) {
+        renderResults(gradedSnapshot);
+    } else {
+        card.classList.remove('show');
+        card.innerHTML = '';
+    }
+}
+
+/* "Review explanations" — restore the fully graded view (the answers from the
+   saved snapshot) and reveal every question's answer + rationale, then scroll to
+   the first question. Works even after Retry incorrect → Show all questions. */
+function reviewAll() {
+    if (gradedSnapshot && gradedSnapshot.answers) {
+        answers = { ...gradedSnapshot.answers };
+        save(K.answers, answers);
+    }
+    graded = true;
+    submitted = { all: true };
+    save(K.submitted, submitted);
+    retryMode = false;
+    const banner = document.getElementById('retry-banner');
+    if (banner) banner.style.display = 'none';
+    // make sure every card + section divider is visible, then reveal explanations
+    quizData.forEach((_, i) => {
+        const card = document.getElementById('q-card-' + i);
+        if (card) card.style.display = '';
+        revealAnswer(i);
+        updateNavCell(i);
+    });
+    document.querySelectorAll('.section-divider').forEach(d => d.style.display = '');
+    applyModeUI();
+    refreshResults();   // keep the score card visible
+    updateProgress();
+    document.getElementById('q-card-0').scrollIntoView({ behavior: 'smooth', block: 'start' });
+}
+
+/* Two-click reset: first click arms the button ("Click again to confirm");
+   a second click within a few seconds runs the reset. No blocking pop-up.
+   Clicking anywhere else — or waiting — quietly cancels. */
+let _resetArmed = null, _resetTimer = null;
+function _disarmReset() {
+    if (_resetTimer) { clearTimeout(_resetTimer); _resetTimer = null; }
+    if (_resetArmed) {
+        const b = _resetArmed;
+        if (b._origHTML != null) { b.innerHTML = b._origHTML; b._origHTML = null; }
+        b.classList.remove('reset-armed');
+        b.removeAttribute('aria-live');
+        _resetArmed = null;
+    }
+    document.removeEventListener('click', _resetOutside, true);
+}
+function _resetOutside(e) {
+    const onBtn = e.target.closest && e.target.closest('button');
+    if (_resetArmed && onBtn !== _resetArmed) _disarmReset();
+}
+function resetQuizClick(btn) {
+    if (_resetArmed === btn) { _disarmReset(); doResetQuiz(); return; }
+    _disarmReset();
+    _resetArmed = btn;
+    btn._origHTML = btn.innerHTML;
+    btn.classList.add('reset-armed');
+    btn.setAttribute('aria-live', 'polite');
+    btn.innerHTML = 'Click again to confirm';
+    _resetTimer = setTimeout(_disarmReset, 4000);
+    // Capture-phase listener: it won't fire for the current (arming) click,
+    // but cancels the pending confirm on the next click anywhere else.
+    document.addEventListener('click', _resetOutside, true);
+}
+
+/* Reset everything for this quiz — usable any time (settings menu, end of
+   quiz, or results). Clears local answers/flags/submissions; the saved
+   directory score is left in place unless it's re-graded. */
+function doResetQuiz() {
+    answers = {}; flags = {}; submitted = {}; graded = false; strikes = {}; highlights = {};
+    save(K.answers, answers); save(K.flags, flags); save(K.submitted, submitted);
+    save(K.strikes, strikes); save(K.hl, highlights);
+    gradedSnapshot = null; save(K.snapshot, null);   // clear the saved score report
+    retrySet = []; save(K.retrySet, retrySet);       // clear any pending retry pass
+    const rc = document.getElementById('results-card');
+    rc.classList.remove('show'); rc.innerHTML = '';
+    const banner = document.getElementById('retry-banner'); if (banner) banner.style.display = 'none';
+    retryMode = false;
+    renderQuiz();
+    updateTutorTracker();
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+/* Retry only the questions answered incorrectly. Clears those answers so
+   they can be re-attempted; correct ones are hidden for a focused pass. */
+let retryMode = false;
+function retryIncorrect() {
+    const wrong = quizData.map((q, i) => (answers[i] !== q.correctAnswer ? i : -1)).filter(i => i >= 0);
+    if (wrong.length === 0) { alert('Every question was correct — nothing to retry.'); return; }
+    // remember which questions this retry pass covers, so grading can score them separately
+    retrySet = wrong.slice();
+    save(K.retrySet, retrySet);
+    // reset grading + the wrong answers
+    graded = false; submitted = {}; save(K.submitted, submitted);
+    wrong.forEach(i => { delete answers[i]; });
+    save(K.answers, answers);
+    const rc = document.getElementById('results-card');
+    rc.classList.remove('show'); rc.innerHTML = '';
+    retryMode = true;
+    renderQuiz();
+    // show only the incorrect questions
+    const wrongSet = new Set(wrong);
+    quizData.forEach((_, i) => {
+        const card = document.getElementById('q-card-' + i);
+        if (card) card.style.display = wrongSet.has(i) ? '' : 'none';
+    });
+    // hide section dividers with no visible cards
+    document.querySelectorAll('.section-divider').forEach(d => {
+        let n = d.nextElementSibling, anyVisible = false;
+        while (n && !n.classList.contains('section-divider')) { if (n.classList.contains('question-card') && n.style.display !== 'none') anyVisible = true; n = n.nextElementSibling; }
+        d.style.display = anyVisible ? '' : 'none';
+    });
+    // banner + scroll to first
+    showRetryBanner(wrong.length);
+    const first = document.getElementById('q-card-' + wrong[0]);
+    if (first) first.scrollIntoView({ behavior: 'smooth', block: 'start' });
+}
+
+function showRetryBanner(n) {
+    let banner = document.getElementById('retry-banner');
+    if (!banner) {
+        banner = document.createElement('div');
+        banner.id = 'retry-banner';
+        banner.className = 'retry-banner';
+        const root = document.getElementById('quiz-root');
+        root.parentNode.insertBefore(banner, root);
+    }
+    banner.innerHTML = `<span>🔁 Retrying <b>${n}</b> missed question${n > 1 ? 's' : ''}. Correct ones are hidden.</span><button class="results-btn" onclick="exitRetry()">Show all questions</button>`;
+    banner.style.display = 'flex';
+}
+function exitRetry() {
+    retryMode = false;
+    const banner = document.getElementById('retry-banner');
+    if (banner) banner.style.display = 'none';
+    quizData.forEach((_, i) => { const c = document.getElementById('q-card-' + i); if (c) c.style.display = ''; });
+    document.querySelectorAll('.section-divider').forEach(d => d.style.display = '');
+    refreshResults();   // bring the score report back — it persists until Reset quiz
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+function toggleLOs() {
+    const on = !document.body.classList.contains('show-lo');
+    document.body.classList.toggle('show-lo', on);
+    const t = document.getElementById('lo-btn');
+    t.classList.toggle('on', on); t.setAttribute('aria-pressed', on ? 'true' : 'false');
+    localStorage.setItem(K.showLO, on ? 'true' : 'false');
+}
+
+function updateProgress() {
+    const answered = quizData.filter((_, i) => answers[i] != null).length;
+    const flagged = Object.keys(flags).length;
+    document.getElementById('answered-count').textContent = answered;
+    document.getElementById('flag-count').textContent = flagged;
+    document.getElementById('progress-fill').style.width = (answered / quizData.length * 100) + '%';
+}
+
+/* ============================================================
+   TUTOR LIVE SCORE TRACKER  (functional header control)
+   Off by default. When ON in tutor mode, a running score sits at the top of
+   the page and updates as each question is submitted. Per-question feedback
+   (correct/incorrect + rationale) is unchanged — this only adds the tally.
+   Hidden in exam mode (the results card serves that role there).
+============================================================ */
+function toggleGradeTrack() {
+    gradeTrack = !gradeTrack;
+    localStorage.setItem(K.gradeTrack, gradeTrack ? 'true' : 'false');
+    applyGradeTrackUI();
+    updateTutorTracker();
+}
+
+/* Header button state + "View score" jump button visibility. */
+function applyGradeTrackUI() {
+    const on = gradeTrack && mode === 'tutor';
+    const btn = document.getElementById('grade-btn');
+    if (btn) {
+        btn.style.display = (mode === 'tutor') ? '' : 'none';
+        btn.classList.toggle('on', on);
+        btn.setAttribute('aria-pressed', on ? 'true' : 'false');
+    }
+    const vb = document.getElementById('view-score-btn');
+    if (vb) vb.style.display = on ? '' : 'none';
+}
+
+/* Recompute the running tutor score from the submitted questions. */
+function updateTutorTracker() {
+    const el = document.getElementById('tutor-tracker');
+    if (!el) return;
+    const show = gradeTrack && mode === 'tutor';
+    el.classList.toggle('show', show);
+    if (!show) { el.innerHTML = ''; return; }
+    let gradedN = 0, correct = 0;
+    quizData.forEach((q, i) => { if (submitted[i]) { gradedN++; if (answers[i] === q.correctAnswer) correct++; } });
+    const incorrect = gradedN - correct;
+    const remaining = quizData.length - gradedN;
+    const pct = gradedN ? Math.round((correct / gradedN) * 100) : 0;
+    const barPct = Math.round((gradedN / quizData.length) * 100);
+    el.innerHTML = `
+        <div class="tt-card">
+            <span class="tt-label">Live score</span>
+            <span class="tt-main">${correct} / ${gradedN} <span class="tt-pct">· ${pct}%</span></span>
+            <div class="tt-tallies">
+                <span class="tt-correct">✓ ${correct}</span>
+                <span class="tt-incorrect">✗ ${incorrect}</span>
+                <span class="tt-remaining">${remaining} left</span>
+            </div>
+            <div class="tt-track"><div class="tt-fill" style="width:${barPct}%"></div></div>
+        </div>`;
+}
+
+function jumpToTracker() {
+    const el = document.getElementById('tutor-tracker');
+    if (el && el.classList.contains('show')) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    else window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+/* ============================================================
+   CONTROLS / KEYBOARD GUIDE MODAL
+============================================================ */
+function openHelp() {
+    document.getElementById('help-overlay').classList.add('open');
+    document.body.style.overflow = 'hidden';   // freeze background scroll while open
+}
+function closeHelp() {
+    document.getElementById('help-overlay').classList.remove('open');
+    document.body.style.overflow = '';
+}
+
+
+/* ============================================================
+   THEME SYSTEM  (reads/writes the SHARED bb_ keys so the theme
+   and background carry over to and from the directory)
+============================================================ */
+const themeSelect = document.getElementById('theme-select');
+const customBuilder = document.getElementById('custom-builder');
+
+// Show the color pickers and close the settings panel so they're never hidden behind it.
+// (On mobile the theme dropdown lives inside settings, which is why the pickers were invisible there.)
+function openCustomPicker() {
+    customBuilder.classList.add('active');
+    document.getElementById('settings-panel').classList.remove('open');
+    document.getElementById('settings-btn').classList.remove('open');
+}
+// openPicker: true when the user actively picks a theme; false on page load (so the picker
+// doesn't pop up on every refresh — the custom colors are still applied either way).
+function changeTheme(name, openPicker) {
+    localStorage.setItem('bb_quizTheme', name);
+    // keep both desktop + mobile selects in sync
+    if (themeSelect.value !== name) themeSelect.value = name;
+    const tm = document.getElementById('theme-select-m');
+    if (tm && tm.value !== name) tm.value = name;
+    if (name === 'custom') {
+        root.removeAttribute('data-theme');
+        loadCustomTheme();
+        if (openPicker) openCustomPicker(); else customBuilder.classList.remove('active');
+    } else {
+        root.setAttribute('data-theme', name);
+        customBuilder.classList.remove('active');
+        // Preserve layout custom-properties (persisted sidebar width + header height)
+        // so applying a built-in theme doesn't wipe the restored sidebar width.
+        const _sw = root.style.getPropertyValue('--sidebar-width');
+        const _hh = root.style.getPropertyValue('--header-height');
+        root.removeAttribute('style');
+        if (_sw) root.style.setProperty('--sidebar-width', _sw);
+        if (_hh) root.style.setProperty('--header-height', _hh);
+    }
+}
+themeSelect.addEventListener('change', e => changeTheme(e.target.value, true));
+{ const tm = document.getElementById('theme-select-m'); if (tm) tm.addEventListener('change', e => changeTheme(e.target.value, true)); }
+// If "Custom" is already selected, re-clicking the dropdown fires no 'change' event, so
+// listen for mousedown to reopen the color pickers (matches the directory page behavior).
+themeSelect.addEventListener('mousedown', () => { if (themeSelect.value === 'custom') openCustomPicker(); });
+{ const tm = document.getElementById('theme-select-m'); if (tm) tm.addEventListener('mousedown', () => { if (tm.value === 'custom') openCustomPicker(); }); }
+
+function updateCustomTheme() {
+    const bg = document.getElementById('color-bg').value;
+    const card = document.getElementById('color-card').value;
+    const text = document.getElementById('color-text').value;
+    const accent = document.getElementById('color-accent').value;
+    root.style.setProperty('--bg-body', bg);
+    root.style.setProperty('--bg-header', bg + 'e6');
+    root.style.setProperty('--bg-sidebar', bg + 'cc');
+    root.style.setProperty('--bg-card', card);
+    root.style.setProperty('--bg-card-hover', card);
+    root.style.setProperty('--bg-input', card);
+    root.style.setProperty('--bg-active', accent + '28');
+    root.style.setProperty('--bg-hover', accent + '14');
+    root.style.setProperty('--text-main', text);
+    root.style.setProperty('--topic-color', text);
+    root.style.setProperty('--text-muted', text + '99');
+    root.style.setProperty('--text-accent', accent);
+    root.style.setProperty('--text-accent-2', accent);
+    root.style.setProperty('--border-color', accent + '4d');
+    root.style.setProperty('--border-subtle', text + '1a');
+    root.style.setProperty('--button-bg', accent);
+    root.style.setProperty('--button-text', '#ffffff');
+    root.style.setProperty('--select-bg', card);
+    root.style.setProperty('--select-text', text);
+    root.style.setProperty('--solid-accent', accent);
+    root.style.setProperty('--card-glow', accent + '40');
+    root.style.setProperty('--hero-glow-1', accent + '33');
+    root.style.setProperty('--hero-glow-2', accent + '1f');
+    root.style.setProperty('--neural-rgb', hexToRgb(accent));
+    localStorage.setItem('bb_customColors', JSON.stringify({ bg, card, text, accent }));
+}
+function loadCustomTheme() {
+    const saved = JSON.parse(localStorage.getItem('bb_customColors') || 'null');
+    if (saved) {
+        document.getElementById('color-bg').value = saved.bg;
+        document.getElementById('color-card').value = saved.card;
+        document.getElementById('color-text').value = saved.text;
+        document.getElementById('color-accent').value = saved.accent;
+    }
+    updateCustomTheme();
+}
+function hexToRgb(hex) { const h = hex.replace('#',''); return `${parseInt(h.slice(0,2),16)},${parseInt(h.slice(2,4),16)},${parseInt(h.slice(4,6),16)}`; }
+
+/* ============================================================
+   SETTINGS PANEL + BACKGROUND + ACCENTS  (shared bb_ keys)
+============================================================ */
+function toggleSettings() {
+    const panel = document.getElementById('settings-panel');
+    const open = panel.classList.toggle('open');
+    document.getElementById('settings-btn').classList.toggle('open', open);
+    if (open) customBuilder.classList.remove('active');
+}
+function toggleBackground() {
+    const on = !document.getElementById('bg-toggle').classList.contains('on');
+    localStorage.setItem('bb_bgEnabled', on ? 'true' : 'false');
+    applyBackground(on);
+}
+function applyBackground(on) {
+    if (on) { window.bgFx && window.bgFx.start(); } else { window.bgFx && window.bgFx.stop(); }
+    const t = document.getElementById('bg-toggle');
+    t.classList.toggle('on', on); t.setAttribute('aria-checked', on ? 'true' : 'false');
+    const row = document.getElementById('bg-style-row');
+    if (row) row.style.display = on ? 'flex' : 'none';
+}
+function setBgStyle(name) { localStorage.setItem('bb_bgStyle', name); window.bgFx && window.bgFx.setStyle(name); }
+function toggleAccents() {
+    const on = !document.getElementById('accent-toggle').classList.contains('on');
+    localStorage.setItem('bb_accentsEnabled', on ? 'true' : 'false');
+    applyAccents(on);
+}
+function applyAccents(on) {
+    document.body.classList.toggle('no-accents', !on);
+    const t = document.getElementById('accent-toggle');
+    t.classList.toggle('on', on); t.setAttribute('aria-checked', on ? 'true' : 'false');
+}
+
+/* Close popovers on outside click */
+document.addEventListener('click', e => {
+    const sp = document.getElementById('settings-panel'), sb = document.getElementById('settings-btn');
+    if (sp.classList.contains('open') && !sp.contains(e.target) && !sb.contains(e.target)) { sp.classList.remove('open'); sb.classList.remove('open'); }
+    { const tm = document.getElementById('theme-select-m'); if (customBuilder.classList.contains('active') && !customBuilder.contains(e.target) && !themeSelect.contains(e.target) && !(tm && tm.contains(e.target))) customBuilder.classList.remove('active'); }
+});
+
+/* ============================================================
+   HEADER PIN + SCROLL SPY + BACK TO TOP
+============================================================ */
+function toggleHeader(forceState) {
+    const header = document.getElementById('main-header');
+    const pinned = typeof forceState === 'boolean' ? forceState : header.classList.contains('unpinned');
+    header.classList.toggle('unpinned', !pinned);
+    document.documentElement.style.setProperty('--header-height', pinned ? 'var(--header-h)' : '0px');
+    const t = document.getElementById('pin-toggle');
+    if (t) { t.classList.toggle('on', pinned); t.setAttribute('aria-checked', pinned ? 'true' : 'false'); }
+    localStorage.setItem('bb_headerPinned', pinned ? 'true' : 'false');
+}
+
+let ticking = false;
+let currentQuestion = 0;
+window.addEventListener('scroll', () => {
+    if (ticking) return;
+    ticking = true;
+    requestAnimationFrame(() => {
+        const y = window.scrollY;
+        document.getElementById('main-header').classList.toggle('scrolled', y > 8);
+        // scroll spy: mark current question in navigator (paused briefly after a jump)
+        if (Date.now() < spyLockUntil) { ticking = false; return; }
+        const vis = visibleQuestions();
+        let current = null;
+        vis.forEach(i => {
+            const card = document.getElementById('q-card-' + i);
+            if (card && card.getBoundingClientRect().top < window.innerHeight * 0.4) current = i;
+        });
+        if (current === null) current = vis.length ? vis[0] : 0;
+        currentQuestion = current;
+        document.querySelectorAll('.nav-cell.current').forEach(c => c.classList.remove('current'));
+        const cell = document.getElementById('nav-cell-' + current);
+        if (cell) cell.classList.add('current');
+        ticking = false;
+    });
+});
+
+/* ============================================================
+   KEYBOARD CONTROLS
+   A–E answer · Enter submit (tutor) · F flag · J/K or ↑/↓ move
+   H toggle highlighter · Esc close menus
+============================================================ */
+document.addEventListener('keydown', e => {
+    // ignore when typing in inputs/selects or with modifier keys
+    const tag = (e.target.tagName || '').toLowerCase();
+    if (tag === 'input' || tag === 'select' || tag === 'textarea' || e.metaKey || e.ctrlKey || e.altKey) return;
+
+    // when the controls guide is open, only Esc (to close it) is active
+    const helpOverlay = document.getElementById('help-overlay');
+    if (helpOverlay && helpOverlay.classList.contains('open')) {
+        if (e.key === 'Escape') { closeHelp(); e.preventDefault(); }
+        return;
+    }
+
+    const key = e.key.toLowerCase();
+    const vis = visibleQuestions();
+
+    // Keep the "current" question on something that's actually visible. During a
+    // retry pass the current index can be stale/hidden — snap it to the nearest
+    // visible question so answering + navigation act on what's on screen.
+    let i = currentQuestion;
+    if (vis.length && vis.indexOf(i) === -1) {
+        const after = vis.find(v => v >= i);
+        i = (after != null) ? after : vis[vis.length - 1];
+        currentQuestion = i;
+    }
+
+    if (['a','b','c','d','e'].includes(key)) {
+        const opt = document.querySelector(`#q-card-${i} .option-label[data-key="${key.toUpperCase()}"]`);
+        if (opt) { selectOption(i, key.toUpperCase()); e.preventDefault(); }
+    } else if (e.key === 'Enter') {
+        if (mode === 'tutor' && !submitted[i] && answers[i] != null) { submitOne(i); e.preventDefault(); }
+    } else if (key === 'f') {
+        toggleFlag(i); e.preventDefault();
+    } else if (key === 'j' || e.key === 'ArrowDown') {
+        const next = vis.find(v => v > i);
+        if (next != null) jumpToQuestion(next);
+        e.preventDefault();
+    } else if (key === 'k' || e.key === 'ArrowUp') {
+        const before = vis.filter(v => v < i);
+        if (before.length) jumpToQuestion(before[before.length - 1]);
+        e.preventDefault();
+    } else if (key === 'h') {
+        toggleHighlighter(); e.preventDefault();
+    } else if (e.key === 'Escape') {
+        document.getElementById('settings-panel').classList.remove('open');
+        document.getElementById('settings-btn').classList.remove('open');
+        customBuilder.classList.remove('active');
+    }
+});
+
+document.getElementById('sidebar-toggle').addEventListener('click', () => {
+    const collapsed = document.getElementById('sidebar').classList.toggle('collapsed');
+    // Only remember the choice on desktop; mobile always starts closed.
+    if (window.innerWidth > 820) {
+        localStorage.setItem('bb_quizSidebarCollapsed', collapsed ? 'true' : 'false');
+    }
+});
+
+/* ============================================================
+   RESIZABLE SIDEBAR — drag the handle to set navigator width.
+   Default is the built-in width (288px); double-click resets it.
+============================================================ */
+(function () {
+    const resizer = document.getElementById('sidebar-resizer');
+    if (!resizer) return;
+    const root = document.documentElement;
+    const KEY = 'bb_quizSidebarWidth';
+    const MIN = 150, MAX = 480, DEFAULT = 288;
+
+    // Restore a saved width on load (desktop only — sidebar is an overlay on mobile).
+    const saved = parseInt(localStorage.getItem(KEY), 10);
+    if (window.innerWidth > 820 && saved >= MIN && saved <= MAX) {
+        root.style.setProperty('--sidebar-width', saved + 'px');
+    }
+
+    let startX = 0, startW = 0, dragging = false;
+
+    function currentWidth() {
+        const v = parseInt(getComputedStyle(root).getPropertyValue('--sidebar-width'), 10);
+        return isNaN(v) ? DEFAULT : v;
+    }
+    function onMove(e) {
+        if (!dragging) return;
+        const w = Math.max(MIN, Math.min(MAX, startW + (e.clientX - startX)));
+        root.style.setProperty('--sidebar-width', w + 'px');
+    }
+    function onUp() {
+        if (!dragging) return;
+        dragging = false;
+        document.body.classList.remove('resizing');
+        window.removeEventListener('pointermove', onMove);
+        window.removeEventListener('pointerup', onUp);
+        localStorage.setItem(KEY, currentWidth());
+    }
+    resizer.addEventListener('pointerdown', (e) => {
+        if (window.innerWidth <= 820) return;                 // no resizing on mobile
+        if (document.getElementById('sidebar').classList.contains('collapsed')) return;
+        e.preventDefault();
+        dragging = true;
+        startX = e.clientX;
+        startW = currentWidth();
+        document.body.classList.add('resizing');
+        window.addEventListener('pointermove', onMove);
+        window.addEventListener('pointerup', onUp);
+    });
+    // Double-click restores the default width.
+    resizer.addEventListener('dblclick', () => {
+        root.style.setProperty('--sidebar-width', DEFAULT + 'px');
+        localStorage.setItem(KEY, DEFAULT);
+    });
+})();
+
+function escapeHtml(s) { const d = document.createElement('div'); d.textContent = s; return d.innerHTML; }
+
+/* ============================================================
+   STRIKETHROUGH (eliminate an option)
+============================================================ */
+function toggleStrike(index, key) {
+    if (mode === 'exam' && graded) return;   // don't fiddle after grading
+    if (!strikes[index]) strikes[index] = {};
+    if (strikes[index][key]) delete strikes[index][key]; else strikes[index][key] = true;
+    if (Object.keys(strikes[index]).length === 0) delete strikes[index];
+    save(K.strikes, strikes);
+    const label = document.querySelector(`#q-card-${index} .option-label[data-key="${key}"]`);
+    if (label) label.classList.toggle('eliminated', !!(strikes[index] && strikes[index][key]));
+}
+
+/* Press-and-hold (touch) / right-click (desktop) to eliminate an option.
+   Both are handled here so they can't double-fire and cancel out (Android fires a
+   contextmenu on long-press in addition to our timer). */
+let _lastStrikeLongPress = 0, _lastStrikeEl = null;
+// A hold triggers a follow-up tap-"click" that would also select the option — swallow it.
+document.addEventListener('click', (e) => {
+    const lab = e.target.closest && e.target.closest('.option-label');
+    if (lab && lab === _lastStrikeEl && Date.now() - _lastStrikeLongPress < 700) {
+        e.stopPropagation(); e.preventDefault();
+    }
+}, true);
+function attachLongPress(el, cb) {
+    let timer = null, sx = 0, sy = 0;
+    const clear = () => { if (timer) { clearTimeout(timer); timer = null; } };
+    el.addEventListener('touchstart', (e) => {
+        if (e.touches.length !== 1) { clear(); return; }
+        sx = e.touches[0].clientX; sy = e.touches[0].clientY;
+        clear();
+        timer = setTimeout(() => {
+            timer = null; _lastStrikeLongPress = Date.now(); _lastStrikeEl = el; cb();
+            try { navigator.vibrate && navigator.vibrate(18); } catch (_) {}
+        }, 450);
+    }, { passive: true });
+    el.addEventListener('touchmove', (e) => {
+        if (!timer) return;
+        const t = e.touches[0];
+        if (Math.abs(t.clientX - sx) > 12 || Math.abs(t.clientY - sy) > 12) clear();   // tolerate small jitter
+    }, { passive: true });
+    el.addEventListener('touchend', clear);
+    el.addEventListener('touchcancel', clear);
+    // desktop right-click; also swallow the duplicate contextmenu Android fires after a long-press
+    el.addEventListener('contextmenu', (e) => { e.preventDefault(); if (el === _lastStrikeEl && Date.now() - _lastStrikeLongPress < 700) return; cb(); });
+}
+
+/* ============================================================
+   HIGHLIGHTER
+   In highlight mode, selecting text inside a question stem or option
+   wraps it in <mark class="hl">. Clicking an existing highlight removes it.
+============================================================ */
+function toggleHighlighter() {
+    const on = !document.body.classList.contains('hl-mode');
+    document.body.classList.toggle('hl-mode', on);
+    document.getElementById('hl-btn').classList.toggle('on', on);
+}
+
+function persistHighlight(container) {
+    const qi = container.dataset.qi;
+    if (qi == null) return;
+    highlights[qi] = container.innerHTML;
+    save(K.hl, highlights);
+}
+
+/* Remove a highlight when clicked (works regardless of mode) */
+document.addEventListener('click', e => {
+    const mark = e.target.closest && e.target.closest('mark.hl');
+    if (!mark) return;
+    const host = mark.closest('.question-text');
+    const parent = mark.parentNode;
+    while (mark.firstChild) parent.insertBefore(mark.firstChild, mark);
+    parent.removeChild(mark);
+    parent.normalize();
+    if (host) persistHighlight(host);
+});
+
+/* Create a highlight from the current selection on mouseup (hl-mode only) */
+document.addEventListener('mouseup', () => {
+    if (!document.body.classList.contains('hl-mode')) return;
+    const sel = window.getSelection();
+    if (!sel || sel.isCollapsed || !sel.rangeCount) return;
+    const range = sel.getRangeAt(0);
+    const host = range.commonAncestorContainer.parentElement && range.commonAncestorContainer.parentElement.closest('.question-text');
+    if (!host) return;                       // only highlight within the question stem
+    if (range.toString().trim().length === 0) return;
+    try {
+        const mark = document.createElement('mark');
+        mark.className = 'hl';
+        mark.appendChild(range.extractContents());
+        range.insertNode(mark);
+        host.normalize();
+        persistHighlight(host);
+        sel.removeAllRanges();
+    } catch (err) { /* complex selection spanning nodes — ignore */ }
+});
+
+/* ============================================================
+   INIT
+============================================================ */
+(function init() {
+    // shared theme
+    const savedTheme = localStorage.getItem('bb_quizTheme') || 'slate';
+    themeSelect.value = savedTheme;
+    const themeSelectM = document.getElementById('theme-select-m');
+    if (themeSelectM) themeSelectM.value = savedTheme;
+    changeTheme(savedTheme, false);   // apply saved theme WITHOUT popping the custom picker on load
+    // shared header pin
+    toggleHeader(localStorage.getItem('bb_headerPinned') !== 'false');
+    // shared background + accents
+    const savedStyle = localStorage.getItem('bb_bgStyle') || 'neural';
+    const styleSel = document.getElementById('bg-style-select');
+    if (styleSel) styleSel.value = savedStyle;
+    window.bgFx && window.bgFx.setStyle(savedStyle);
+    applyBackground(localStorage.getItem('bb_bgEnabled') !== 'false');
+    applyAccents(localStorage.getItem('bb_accentsEnabled') !== 'false');
+    // LO visibility (quiz-local; default OFF)
+    const loOn = localStorage.getItem(K.showLO) === 'true';
+    document.body.classList.toggle('show-lo', loOn);
+    const loBtn = document.getElementById('lo-btn');
+    loBtn.classList.toggle('on', loOn); loBtn.setAttribute('aria-pressed', loOn ? 'true' : 'false');
+    // Question navigator sidebar: open by default on desktop (remembers your last choice),
+    // always closed on mobile so it doesn't cover the screen before you start.
+    if (window.innerWidth <= 820) {
+        document.getElementById('sidebar').classList.add('collapsed');
+    } else if (localStorage.getItem('bb_quizSidebarCollapsed') === 'true') {
+        document.getElementById('sidebar').classList.add('collapsed');
+    }
+    // mode (sync both desktop + mobile switches)
+    syncModeButtons();
+    // auto-submit toggle (tutor only): reflect saved state + hide in exam mode
+    toggleAutoSubmit(autoSubmit);
+    document.getElementById('autosubmit-btn').classList.toggle('hidden', mode !== 'tutor');
+    // render
+    renderQuiz();
+    // tutor live score tracker + persistent exam report
+    applyGradeTrackUI();
+    updateTutorTracker();
+    refreshResults();
+})();
+</script>
+</body>
+</html>
